@@ -1,0 +1,34 @@
+
+```
+@startuml
+scale 1.5
+actor Usuario
+boundary ViewConsultarRestaurante <<view>>
+control RestauranteController <<controller>>
+entity RestauranteEntity <<entity>>
+
+== Início ==
+Usuario -> ViewConsultarRestaurante : Selecionar "Visualizar Restaurantes"
+activate Usuario
+activate ViewConsultarRestaurante
+ViewConsultarRestaurante -> RestauranteController : visualizarRestaurantes()
+activate RestauranteController
+RestauranteController --> ViewConsultarRestaurante : listaDeRestaurantes
+
+deactivate RestauranteController
+
+== Seleção ==
+Usuario -> ViewConsultarRestaurante : Selecionar "Restaurante"
+ViewConsultarRestaurante -> RestauranteController : visualizarDados(restaurante)
+activate RestauranteController
+RestauranteController -> RestauranteEntity : visualizarDados(restaurante)
+activate RestauranteEntity
+RestauranteEntity --> RestauranteController : dados
+deactivate RestauranteEntity
+RestauranteController --> ViewConsultarRestaurante : ExibirMsg(dados)
+deactivate RestauranteController
+Usuario -> ViewConsultarRestaurante : Selecionar "Sair"
+deactivate ViewConsultarRestaurante
+deactivate Usuario
+@enduml
+```

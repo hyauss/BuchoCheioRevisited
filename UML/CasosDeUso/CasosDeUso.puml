@@ -1,0 +1,28 @@
+@startuml UseCaseDiagram
+title Diagrama de Casos de Uso
+left to right direction
+
+' Ator
+actor "Usuário" as Usuario
+actor "Restaurante" as Rest
+
+' Casos de Uso
+rectangle Sistema{
+    usecase "Cadastro de Restaurante" as Cad_Rest
+    usecase "Atualizar Cardápio" as Att_Cardapio
+    usecase "Consultar Restaurantes" as Cons_Rest
+    usecase "Avaliar Restaurantes" as Aval_Rest
+    usecase "Obter Relatórios" as Obt_Relat
+}
+
+' Relacionamentos
+Rest -- Cad_Rest
+Rest -- Att_Cardapio
+
+Usuario -- Cons_Rest
+Usuario -- Aval_Rest
+Usuario -- Obt_Relat
+
+' Inclusão / Extensão
+
+@enduml

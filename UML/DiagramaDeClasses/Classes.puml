@@ -1,0 +1,36 @@
+@startuml Classes
+title Diagrama de Classes - Bucho-Cheio
+skinparam linetype ortho
+'left to right direction
+
+' ======================
+' Classes Principais
+' ======================
+class Restaurante {
+}
+
+class Relatorio {
+}
+
+class Usuario {
+}
+
+class Avaliacao {
+}
+
+class Prato {
+}
+
+' ======================
+' Relacionamentos
+' ======================
+Usuario "1" --- "N" Avaliacao : realiza
+Restaurante "1" -u- "N" Avaliacao : recebe
+
+Restaurante "1" -- "N" Prato : possui
+
+Relatorio "1" -- "N" Restaurante : inclui
+Usuario "1" --- "N" Relatorio : consulta
+Usuario "1" -- "N" Restaurante : consulta
+
+@enduml
