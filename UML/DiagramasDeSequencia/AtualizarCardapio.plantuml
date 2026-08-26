@@ -1,0 +1,74 @@
+
+```
+@startuml
+scale 1.5
+actor Restaurante
+boundary ViewLoginRestaurante <<view>>
+control RestauranteController <<controller>>
+entity RestauranteEntity <<entity>>
+
+== Início ==
+Restaurante -> ViewLoginRestaurante : Selecionar "Login"
+activate Restaurante
+activate ViewLoginRestaurante
+ViewLoginRestaurante -> RestauranteController : iniciarLoginRestaurante()
+activate RestauranteController
+RestauranteController --> ViewLoginRestaurante : exibirFormularioLogin()
+
+deactivate RestauranteController
+
+== Preenchimento ==
+Restaurante -> ViewLoginRestaurante : Preencher dados
+ViewLoginRestaurante -> RestauranteController : enviarDadosLogin(dados)
+activate RestauranteController
+RestauranteController -> RestauranteEntity : validarDadosObrigatorios()
+activate RestauranteEntity
+RestauranteEntity --> RestauranteController : dadosValidados
+deactivate RestauranteEntity
+RestauranteController --> ViewLoginRestaurante : statusOk
+deactivate RestauranteController
+
+== Horários ==
+Restaurante -> ViewLoginRestaurante : Informar horarios de funcionamento
+ViewLoginRestaurante -> RestauranteController : enviarHorarios(horarios)
+activate RestauranteController
+RestauranteController -> RestauranteEntity : salvarHorarios()
+activate RestauranteEntity
+RestauranteEntity --> RestauranteController : horariosSalvos
+deactivate RestauranteEntity
+RestauranteController --> ViewLoginRestaurante : statusOk
+deactivate RestauranteController
+
+== Pratos ==
+Restaurante -> ViewLoginRestaurante : Selecionar "Editar Pratos"
+ViewLoginRestaurante -> RestauranteController : restaurante
+activate RestauranteController
+RestauranteController -> RestauranteEntity : restaurante
+activate RestauranteEntity
+RestauranteEntity --> RestauranteController : pratosSalvos
+deactivate RestauranteEntity
+RestauranteController --> ViewLoginRestaurante : pratosSalvos
+deactivate RestauranteController
+Restaurante -> ViewLoginRestaurante : Selecionar "Editar Prato"
+ViewLoginRestaurante -> RestauranteController : exibirPrato(prato)
+activate RestauranteController
+RestauranteController -> RestauranteEntity : exibirPrato(prato)
+activate RestauranteEntity
+RestauranteEntity --> RestauranteController : pratoSalvo
+deactivate RestauranteEntity
+RestauranteController --> ViewLoginRestaurante : pratoSalvo
+deactivate RestauranteController
+Restaurante -> ViewLoginRestaurante : Editar informacoes e Selecionar "Salvar"
+ViewLoginRestaurante -> RestauranteController : atualizarPrato(prato)
+activate RestauranteController
+RestauranteController -> RestauranteEntity : atualizarPrato(prato)
+activate RestauranteEntity
+RestauranteEntity --> RestauranteController : pratoSalvo
+deactivate RestauranteEntity
+RestauranteController --> ViewLoginRestaurante : pratoSalvo
+deactivate RestauranteController
+Restaurante -> ViewLoginRestaurante : Selecionar "Sair"
+deactivate ViewLoginRestaurante
+deactivate Restaurante
+@enduml
+```
