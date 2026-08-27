@@ -12,7 +12,7 @@ Baixar o banco de dados [PostGreSQL](https://www.postgresql.org/) e configurar o
 
 # Utilização
 
-Dentro da pasta [BuchoCheio](https://github.com/hyauss/BuchoCheioRevisited/tree/Dev/BuchoCheio)
+Dentro da pasta [BuchoCheio](https://github.com/hyauss/BuchoCheioRevisited/tree/fix/readme/BuchoCheio)
 
 Rode, para ligar o Servidor(BackEnd): mvn spring-boot:run
 
