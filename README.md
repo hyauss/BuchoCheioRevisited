@@ -12,11 +12,8 @@ Baixar o banco de dados [PostGreSQL](https://www.postgresql.org/) e configurar o
 
 # Utilização
 
-Dentro da pasta [BuchoCheio](https://github.com/hyauss/BuchoCheioRevisited/tree/Dev/BuchoCheio)
+Dentro da pasta [BuchoCheio](https://github.com/hyauss/BuchoCheioRevisited/tree/Dev/BuchoCheioRevisited)
 
 Rode, para ligar o Servidor(BackEnd): mvn spring-boot:run
 
-Dentro da pasta [BuchoCheioVuejs](https://github.com/hyauss/BuchoCheioRevisited/tree/Dev/BuchoCheioVuejs)
-
-Rode, para ligar o Servidor na versão de desenvolvimento (FrontEnd): npm run build
-Rode, para ligar o Servidor na versão de produção (FrontEnd): npm run dev
+Obs: Front ainda em implementação.
