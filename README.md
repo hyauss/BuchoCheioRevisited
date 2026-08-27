@@ -3,7 +3,7 @@ Web Service para restaurantes se organizarem para oferecerem pratos de comida fe
 
 # Tutorial
 
-
+[Informações complementares de ideação e preview - TUTORIAL.md](https://github.com/hyauss/BuchoCheioRevisited/blob/fix/readme/TUTORIAL.md)
 
 # Instalação
 
