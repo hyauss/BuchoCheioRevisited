@@ -1,0 +1,56 @@
+body{
+    background-color: #1F1F1F;
+    display: flex;
+}
+
+button{
+    background-color: transparent;
+    border: none;
+}
+
+.text {
+    color: white;
+    font-weight: 600;
+}
+
+.headertext{
+    font-size: 16px;
+}
+
+.pText{
+    font-size: 20px;
+}
+
+.titleText{
+    font-size: 64px;
+}
+
+.imageLabelText{
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.footerText{
+    color: #707070;
+    font-size: 20px;
+    width: 100%;
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+
+}
+
+.headerImages{
+    height: 47;
+    width: 48;
+}
+
+main{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
