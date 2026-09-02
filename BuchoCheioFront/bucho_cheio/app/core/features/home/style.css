@@ -2,6 +2,7 @@ body{
     background-color: #1F1F1F;
     display: flex;
     flex-direction: column;
+    margin: 0;
 }
 
 button{
@@ -9,6 +10,16 @@ button{
     border: none;
     margin: 0;
     padding: 0;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+button:active{
+    transform: scale(1.00);
 }
 
 .text {
@@ -36,11 +47,12 @@ button{
 
 footer{
     display: flex;
-    padding-top: 309;
+    justify-content: flex-end;
     color: #707070;
     background-color: #292929;
     font-size: 20px;
-    margin-left: auto;
+    width: 100%;
+    height: 70px;
 }
 
 header{
@@ -48,6 +60,9 @@ header{
     flex-direction: row;
     align-items: center;
     gap: 13px;
+    padding-top: 20px;
+    padding-left: 24px;
+    padding-right: 24px;
 }
 
 .headerImages{
@@ -66,6 +81,7 @@ main{
     flex-direction: row;
     align-items: center;
     gap: 48px;
+    padding-bottom: 309px;
 }
 
 .navigationSectionImagens{
