@@ -7,19 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <button>
-            <img class="headerImages" src="Assets/fork.knife.circle.png" alt="Imagem contendo um garfo e uma faca.">
-        </button>
-        <button class=" text headerText" aria-label="Home" >Home</button>
-        <button class=" text headerText" aria-label="Resturante">Resturante</button>
-        <button class=" text headerText" aria-label="Cadastrar">Cadastrar</button>
-        <button class=" text headerText" aria-label="Relatórios">Relatórios</button>
-        <button class=" text headerText" aria-label="Meus restaurantes">Meus restaurantes</button>
-        <button class="profileImage">
-            <img class="headerImages" src="Assets/person.crop.circle.png" alt="Imagem de perfil">
-        </button>
-    </header>
+    <custom-header active="home"></custom-header>
     
     <main>
         <section class="informationSection">
@@ -28,9 +16,9 @@
         </section>
         <section class="navigationSection">
             <nav>
-                <a href="../restaurantes/restaurantes.html">
+                <button onclick="window.location.href='../restaurantes/restaurantes.html'">
                     <img class="navigationSectionImagens" src="Assets/consultarRestaurantes.png" alt="Garfo e faca pretos em fundo branco">
-                </a>
+                </button>
                 <aside class="text imageLabelText">Consultar restaurantes</aside>
             </nav>
             <nav>
@@ -46,7 +34,10 @@
                 <aside class="text imageLabelText">Obter Relatórios</aside>
             </nav>
         </section>
-        <footer class="footerText">footerInformation</footer>
     </main>
+
+    <custom-footer></custom-footer>
+
+    <script src="../../DesingSystem/Components/components.js"></script>
 </body>
 </html>

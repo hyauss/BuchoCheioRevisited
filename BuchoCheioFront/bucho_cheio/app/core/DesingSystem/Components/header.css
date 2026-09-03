@@ -1,0 +1,33 @@
+header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 13px;
+    padding-top: 20px;
+    padding-left: 24px;
+    padding-right: 24px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.headerImages {
+    height: 47px;
+    width: 48px;
+    object-fit: contain;
+    display: block;
+}
+
+.headertext,
+.headerText {
+    font-size: 16px;
+    color: white;
+}
+
+.headerText.active,
+.headertext.active {
+    border-bottom: 2px solid white;
+}
+
+.profileImage {
+    margin-left: auto;
+}
