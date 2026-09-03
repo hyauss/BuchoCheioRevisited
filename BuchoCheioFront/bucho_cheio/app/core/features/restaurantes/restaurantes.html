@@ -3,23 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Restaurantes</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-        <header>
-            <button>
-                <img class="headerImages" src="Assets/fork.knife.circle.png" alt="Imagem contendo um garfo e uma faca.">
-            </button>
-            <button class=" text headerText" aria-label="Home" >Home</button>
-            <button class=" text headerText" aria-label="Resturante">Resturante</button>
-            <button class=" text headerText" aria-label="Cadastrar">Cadastrar</button>
-            <button class=" text headerText" aria-label="Relatórios">Relatórios</button>
-            <button class=" text headerText" aria-label="Meus restaurantes">Meus restaurantes</button>
-            <button class="profileImage">
-                <img class="headerImages" src="Assets/person.crop.circle.png" alt="Imagem de perfil">
-            </button>
-        </header>
+    <custom-header active="restaurantes"></custom-header>
     
     <main>
         <section class="informationSection">
@@ -31,15 +19,20 @@
                 <p>Endereço: Rua yyyyyyyyy, 234</p>
                 <p>CNPJ: xxxx.ssss.gggg.eee</p>
                 <img src="Assets/exampleLogo.png" alt="logo do restaurante">
+                <a href="../userMenu/menu.html">Ver restaurante</a>
             </article>
             <article>
                 <p>Restaurante XXXX</p>
                 <p>Endereço: Rua yyyyyyyyy, 234</p>
                 <p>CNPJ: xxxx.ssss.gggg.eee</p>
                 <img src="Assets/exampleLogo.png" alt="logo do restaurante">
+                <a href="../userMenu/menu.html">Ver restaurante</a>
             </article>
         </section>
-        <footer class="footerText">footerInformation</footer>
     </main>
+
+    <custom-footer></custom-footer>
+
+    <script src="../../DesingSystem/Components/components.js"></script>
 </body>
 </html>

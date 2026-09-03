@@ -1,25 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="menuStyle.css">
-    <title>Bucho Cheio</title>
+    <title>Bucho Cheio - Cardápio</title>
 </head>
 <body>
-    <header>
-        <button>
-            <img class="headerImages" src="Assets/fork.knife.circle.png" alt="Imagem contendo um garfo e uma faca.">
-        </button>
-        <button class=" text headerText" aria-label="Home" >Home</button>
-        <button class=" text headerText" aria-label="Resturante">Resturante</button>
-        <button class=" text headerText" aria-label="Cadastrar">Cadastrar</button>
-        <button class=" text headerText" aria-label="Relatórios">Relatórios</button>
-        <button class=" text headerText" aria-label="Meus restaurantes">Meus restaurantes</button>
-        <button class="profileImage">
-            <img class="headerImages" src="Assets/person.crop.circle.png" alt="Imagem de perfil">
-        </button>
-    </header>
+    <custom-header></custom-header>
+    
     <main>
         <section class="restaurantTitleSection">
             <div class="restaurantHeading">
@@ -43,15 +32,7 @@
             <h2 class="text subtitle">Destaques</h2>
             <div class="foodCards">
                 <article class="foodCard">
-                    <img src="Assets/foodimage.png" alt="food image">
-                    <div class="foodText">
-                        <h2 class="text foodTitle">Yaksoba Show</h2>
-                        <p class="text foodDescription">Yaksoba com macarrão, uns legumes, carnezinha legal e muito amor</p>
-                        <h1 class="text foodPrice">R$ 49,95</h1>
-                    </div>
-                </article>
-               <article class="foodCard">
-                    <img src="Assets/foodimage.png" alt="food image">
+                    <img src="Assets/foodimage.png" alt="food image" class="foodImage">
                     <div class="foodText">
                         <h2 class="text foodTitle">Yaksoba Show</h2>
                         <p class="text foodDescription">Yaksoba com macarrão, uns legumes, carnezinha legal e muito amor</p>
@@ -59,7 +40,7 @@
                     </div>
                 </article>
                 <article class="foodCard">
-                    <img src="Assets/foodimage.png" alt="food image">
+                    <img src="Assets/foodimage.png" alt="food image" class="foodImage">
                     <div class="foodText">
                         <h2 class="text foodTitle">Yaksoba Show</h2>
                         <p class="text foodDescription">Yaksoba com macarrão, uns legumes, carnezinha legal e muito amor</p>
@@ -67,15 +48,23 @@
                     </div>
                 </article>
                 <article class="foodCard">
-                    <img src="Assets/foodimage.png" alt="food image">
+                    <img src="Assets/foodimage.png" alt="food image" class="foodImage">
                     <div class="foodText">
                         <h2 class="text foodTitle">Yaksoba Show</h2>
                         <p class="text foodDescription">Yaksoba com macarrão, uns legumes, carnezinha legal e muito amor</p>
                         <h1 class="text foodPrice">R$ 49,95</h1>
                     </div>
                 </article>
-            </section>
-        </div>
+                <article class="foodCard">
+                    <img src="Assets/foodimage.png" alt="food image" class="foodImage">
+                    <div class="foodText">
+                        <h2 class="text foodTitle">Yaksoba Show</h2>
+                        <p class="text foodDescription">Yaksoba com macarrão, uns legumes, carnezinha legal e muito amor</p>
+                        <h1 class="text foodPrice">R$ 49,95</h1>
+                    </div>
+                </article>
+            </div>
+        </section>
         <section class="menuSection">
             <h2 class="text subtitle">Cardápio</h2>
             <div class="foodCardsMenu">
@@ -114,5 +103,9 @@
             </div>
         </section>
     </main>
+
+    <custom-footer></custom-footer>
+
+    <script src="../../DesingSystem/Components/components.js"></script>
 </body>
 </html>

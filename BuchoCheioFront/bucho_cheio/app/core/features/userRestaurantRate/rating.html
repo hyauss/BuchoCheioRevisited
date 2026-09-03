@@ -1,25 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="userRestaurantRateStyle.css">
-    <title>Bucho Cheio</title>
+    <title>Bucho Cheio - Avaliação</title>
 </head>
 <body>
-    <header>
-        <button>
-            <img class="headerImages" src="Assests/fork.knife.circle.png" alt="Imagem contendo um garfo e uma faca.">
-        </button>
-        <button class=" text headerText" aria-label="Home" >Home</button>
-        <button class=" text headerText" aria-label="Resturante">Resturante</button>
-        <button class=" text headerText" aria-label="Cadastrar">Cadastrar</button>
-        <button class=" text headerText" aria-label="Relatórios">Relatórios</button>
-        <button class=" text headerText" aria-label="Meus restaurantes">Meus restaurantes</button>
-        <button class="profileImage">
-            <img class="headerImages" src="Assets/person.crop.circle.png" alt="Imagem de perfil">
-        </button>
-    </header>
+    <custom-header></custom-header>
+    
     <main>
         <section class="restaurantTitleSection">
             <div class="restaurantHeading">
@@ -79,11 +68,11 @@
             </div>
         </section>
         <section class="restInfoCard">
-            <img src="Assets/tiozao.png" alt="Estrela de avaliação">
+            <img src="Assets/tiozao.png" alt="Restaurante foto">
             <div class="restaurentImages">
-                <img src="Assets/restImage.png" alt="Estrela de avaliação">
-                <img src="Assets/restImage.png" alt="Estrela de avaliação">
-                <img src="Assets/restImage.png" alt="Estrela de avaliação">
+                <img src="Assets/restImage.png" alt="Foto do restaurante">
+                <img src="Assets/restImage.png" alt="Foto do restaurante">
+                <img src="Assets/restImage.png" alt="Foto do restaurante">
             </div>
             <footer class="restInfoCardFooter">
                 <p>Restaurante XXXX</p>
@@ -92,5 +81,9 @@
             </footer>
         </section>
     </main>
+
+    <custom-footer></custom-footer>
+
+    <script src="../../DesingSystem/Components/components.js"></script>
 </body>
 </html>
