@@ -168,3 +168,48 @@ header{
     padding-top: 28px;
 }
 
+.foodCardMenu {
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 553.52px;
+    height: 204.16px;
+    border-radius: 7px;
+    background: #D9D9D9;
+}
+
+.menuSection {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* gap: 72px; */
+    padding-left: 71px;
+    padding-top: 51px;
+}
+
+.foodCardsMenu {
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 42px;
+    width: calc(100% - 57px);
+    margin-left: 57px;
+}
+
+.foodCardMenu > img {
+    margin: 0;
+    order: 2;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0 6.16px 6.16px 0;
+}
+
+.foodTextMenu {
+    margin: 0;
+    order: 1;
+    flex: 1;
+    padding: 14px 6px 10px;
+}
+
