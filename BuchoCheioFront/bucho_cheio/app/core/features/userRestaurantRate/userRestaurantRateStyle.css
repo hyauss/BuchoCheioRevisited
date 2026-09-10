@@ -48,6 +48,12 @@ main {
     gap: 4px;
 }
 
+.restaurantRatingCard {
+    display: flex;
+    gap: 4px;
+    padding-top: 10px;
+}
+
 .rateText {
     margin: 0;
     padding-left: 49px;
@@ -124,4 +130,99 @@ main {
     font-weight: 500;
     line-height: normal;
     padding: 0px 25px 20px 25px ;
+}
+
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+        gap: 32px;
+        padding-bottom: 32px;
+    }
+
+    .restaurantTitleSection {
+        box-sizing: border-box;
+        padding: 24px 16px 0;
+        width: 100%;
+    }
+
+    .restaurantHeading {
+        width: 100%;
+    }
+
+    .titleText,
+    .rateText {
+        font-size: 32px;
+    }
+
+    .titleText {
+        padding-left: 8px;
+    }
+
+    .backButton {
+        height: 36px;
+        width: 36px;
+    }
+
+    .rateText {
+        padding-left: 0;
+    }
+
+    .restaurantRating {
+        margin-left: 0;
+    }
+
+    .restaurantRating img {
+        height: 24px;
+        width: 24px;
+    }
+
+    .rateButtonText {
+        box-sizing: border-box;
+        margin: 0 0 8px;
+        width: 100%;
+    }
+
+    .ratingCardsScroll {
+        box-sizing: border-box;
+        margin-left: 0;
+        max-width: none;
+        width: 100%;
+    }
+
+    .ratingCardsScroll article {
+        box-sizing: border-box;
+        height: auto;
+        min-height: 202px;
+        width: 100%;
+    }
+
+    .restInfoCard {
+        box-sizing: border-box;
+        margin: 0 16px;
+        max-width: calc(100% - 32px);
+        width: calc(100% - 32px);
+    }
+
+    .restInfoCard > img {
+        height: auto;
+        max-width: 100%;
+    }
+
+    .restaurentImages {
+        box-sizing: border-box;
+        max-width: 100%;
+        overflow-x: auto;
+        padding: 24px 16px;
+    }
+
+    .restInfoCardFooter {
+        flex-wrap: wrap;
+        gap: 8px 16px;
+        justify-content: flex-start;
+        padding: 0 16px 20px;
+    }
+
+    .restInfoCardFooter p {
+        margin: 0;
+    }
 }
