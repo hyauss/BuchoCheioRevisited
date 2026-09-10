@@ -87,7 +87,7 @@ main {
     display: flex;
     flex-direction: column;
     align-self: flex-start;
-    gap: 16px;
+    gap: 0px;
     margin-right: 110px;
     width: fit-content;
     margin-top: 120px;
@@ -102,8 +102,8 @@ main {
     flex: 0 0 auto;
 }
 
-.restInfoCardFooter {
-    color: #A0A0A0;
+.restInfoCard footer {
+    background-color: #D9D9D9;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -113,7 +113,9 @@ main {
     font-style: normal;
     font-weight: 500;
     line-height: normal;
-    padding: 0px 25px 20px 25px ;
+    padding: 0px 25px 10px 25px ;
+    height: auto;
+    width: auto;
 }
 
 .ratingDialog {
