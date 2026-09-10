@@ -48,6 +48,12 @@ main {
     gap: 4px;
 }
 
+.restaurantRatingCard {
+    display: flex;
+    gap: 4px;
+    padding-top: 10px;
+}
+
 .rateText {
     margin: 0;
     padding-left: 49px;
@@ -86,7 +92,6 @@ main {
     width: fit-content;
     margin-top: 120px;
 }
-
 .restaurentImages {
     padding: 68px 16px 68px 16px;
     display: flex;
@@ -110,3 +115,163 @@ main {
     line-height: normal;
     padding: 0px 25px 20px 25px ;
 }
+
+.ratingDialog {
+    border: 0;
+    border-radius: 8px;
+    padding: 0;
+    width: min(90vw, 480px);
+}
+
+.ratingDialog::backdrop {
+    background: rgb(0 0 0 / 35%);
+    backdrop-filter: blur(6px);
+}
+
+.ratingDialogContent {
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 28px;
+    text-align: center;
+    font-size: 20px;
+;
+}
+
+.ratingDialogContent h2 {
+    margin: 0 0 8px;
+}
+
+.ratingCommentLabel {
+    align-self: flex-start;
+    text-align: left;
+}
+
+.ratingDialogContent textarea {
+    box-sizing: border-box;
+    font: inherit;
+    min-height: 120px;
+    padding: 10px;
+    resize: vertical;
+    width: 100%;
+}
+
+.ratingDialogClose {
+    align-self: flex-end;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    font-size: 28px;
+    line-height: 1;
+}
+
+.ratingDialogSubmit {
+    align-self: center;
+    border: 0;
+    border-radius: 90px;
+    cursor: pointer;    
+    margin: 0;
+    padding: 7px 113px 7px 117px;
+    width: auto;
+}
+
+.rateStars {
+    padding: 0px 0px 0px 0px;
+}
+
+/* @media (max-width: 768px) {
+    main {
+        flex-direction: column;
+        gap: 32px;
+        padding-bottom: 32px;
+    }
+
+    .restaurantTitleSection {
+        box-sizing: border-box;
+        padding: 24px 16px 0;
+        width: 100%;
+    }
+
+    .restaurantHeading {
+        width: 100%;
+    }
+
+    .titleText,
+    .rateText {
+        font-size: 32px;
+    }
+
+    .titleText {
+        padding-left: 8px;
+    }
+
+    .backButton {
+        height: 36px;
+        width: 36px;
+    }
+
+    .rateText {
+        padding-left: 0;
+    }
+
+    .restaurantRating {
+        margin-left: 0;
+    }
+
+    .restaurantRating img {
+        height: 24px;
+        width: 24px;
+    }
+
+    .rateButtonText {
+        box-sizing: border-box;
+        margin: 0 0 8px;
+        width: 100%;
+    }
+
+    .ratingCardsScroll {
+        box-sizing: border-box;
+        margin-left: 0;
+        max-width: none;
+        width: 100%;
+    }
+
+    .ratingCardsScroll article {
+        box-sizing: border-box;
+        height: auto;
+        min-height: 202px;
+        width: 100%;
+    }
+
+    .restInfoCard {
+        box-sizing: border-box;
+        margin: 0 16px;
+        max-width: calc(100% - 32px);
+        width: calc(100% - 32px);
+    }
+
+    .restInfoCard > img {
+        height: auto;
+        max-width: 100%;
+    }
+
+    .restaurentImages {
+        box-sizing: border-box;
+        max-width: 100%;
+        overflow-x: auto;
+        padding: 24px 16px;
+    }
+
+    .restInfoCardFooter {
+        flex-wrap: wrap;
+        gap: 8px 16px;
+        justify-content: flex-start;
+        padding: 0 16px 20px;
+    }
+
+    .restInfoCardFooter p {
+        margin: 0;
+    }
+} */

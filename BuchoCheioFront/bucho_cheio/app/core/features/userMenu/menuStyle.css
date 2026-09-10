@@ -29,6 +29,10 @@
     text-decoration: none;
 }
 
+.restaurantHeading a:last-child {
+    margin-left: 700px;
+}
+
 .goRateButton {
     margin-left: 32px;
     font-size: 20px;
@@ -159,4 +163,14 @@
     order: 1;
     flex: 1;
     padding: 14px 6px 10px;
+}
+
+.rateButtonText  {
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 160px;
+    height: 37px;
+    padding: 0px 0px 0px 0px;
 }
