@@ -2,13 +2,14 @@
 
 main {
     display: flex;
-    align-items: center;
+    align-self: center;
     flex-direction: column;
 }
 
 .titleText {
-    font-size: 64px;
-    padding-bottom: 10px;
+    font-size: 48px;
+    padding-bottom: 23px;
+    margin-left: auto;
 }
 
 .informationSection {
@@ -16,6 +17,7 @@ main {
     flex-direction: column;
     padding-top: 115px;
     padding-bottom: 63px;
+    align-self: flex-start;
 }
 
 .cardSection {
@@ -25,6 +27,7 @@ main {
     align-items: center;
     gap: 48px;
     padding-bottom: 309px;
+    align-self: flex-start;
 }
 
 article {
@@ -64,6 +67,5 @@ p{
 }
 
 .cardButton{
-    
-    margin: 0;
+    margin: 0px;
 }
