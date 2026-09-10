@@ -55,8 +55,7 @@ h1, h2, h3, p {
 }
 
 /* Garante comportamento correto de tags customizadas */
-custom-header, app-header,
-custom-footer, app-footer {
+custom-header, app-header {
     display: block;
     width: 100%;
 }
@@ -64,8 +63,10 @@ custom-footer, app-footer {
 .mainPagesFooter{
     display: flex;
     justify-content: flex-end;
+    align-items: center;
+    padding: 20px;
     margin-top: auto;
-    color: #707070; 
+    color: #707070;
     background-color: #292929;
     font-size: 20px;
     width: 100%;
