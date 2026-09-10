@@ -2,8 +2,9 @@
 
 main {
     display: flex;
-    align-items: center;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .pText {
@@ -23,6 +24,8 @@ main {
 .informationSection {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
+    max-width: 864px;
     padding-top: 115px;
     padding-bottom: 63px;
 }
@@ -30,7 +33,6 @@ main {
 .navigationSection {
     display: flex;
     flex-direction: row;
-    align-items: center;
     gap: 48px;
     padding-bottom: 309px;
 }
@@ -41,7 +43,7 @@ main {
     padding-bottom: 10px;
 }
 
-nav {
+article {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
