@@ -61,7 +61,7 @@ custom-footer, app-footer {
     width: 100%;
 }
 
-footer{
+.mainPagesFooter{
     display: flex;
     justify-content: flex-end;
     margin-top: auto;
