@@ -6,8 +6,13 @@ main {
     flex-direction: column;
 }
 
+h1{
+    padding: 0px;
+}
+
 .titleText {
     font-size: 48px;
+    padding-top: 23px;
     padding-bottom: 23px;
     margin-left: auto;
 }
@@ -15,8 +20,6 @@ main {
 .informationSection {
     display: flex;
     flex-direction: column;
-    padding-top: 115px;
-    padding-bottom: 63px;
     align-self: flex-start;
 }
 
