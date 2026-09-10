@@ -18,19 +18,23 @@
     gap: 12px;
     padding-left: 71px;
     padding-top: 28px;
+    justify-content: space-between;
 }
 
 .restaurantHeading {
     display: flex;
     align-items: center;
+    width: 100%;
 }
 
 .restaurantHeading a {
+    display: flex;
     text-decoration: none;
 }
 
 .restaurantHeading a:last-child {
-    margin-left: 700px;
+    margin-left: auto;
+    padding-right: 134px;
 }
 
 .goRateButton {
@@ -173,4 +177,8 @@
     width: 160px;
     height: 37px;
     padding: 0px 0px 0px 0px;
+}
+
+.restaurantHeading .rateButtonText {
+    margin: 0;
 }
