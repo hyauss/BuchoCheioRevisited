@@ -1,0 +1,129 @@
+import { Dish } from './Models/Dish.js';
+import { Rating } from './Models/Rating.js';
+import { Restaurant } from './Models/Restaurant.js';
+
+export class RestauranteService {
+
+restaurantes = [
+        new Restaurant(
+            1,
+            "Doceria da Gigica",
+            "Avenida 25, 399, Apto 74",
+            "19.344.912/0001-09",
+            ["Assets/exampleLogo.png"],
+            [
+                new Dish(
+                    "Copo de morango com brownie",
+                    "Um delicioso copo com morango e brownie",
+                    ["Assets/exampleLogo.png"],
+                    30
+                )
+            ],
+            [
+                new Rating(
+                    5,
+                    "Muito bom!!"
+                )
+            ]
+        ),
+        new Restaurant(
+            1,
+            "Doceria da Gigica",
+            "Avenida 25, 399, Apto 74",
+            "19.344.912/0001-09",
+            ["Assets/exampleLogo.png"],
+            [
+                new Dish(
+                    "Copo de morango com brownie",
+                    "Um delicioso copo com morango e brownie",
+                    ["Assets/exampleLogo.png"],
+                    30
+                )
+            ],
+            [
+                new Rating(
+                    5,
+                    "Muito bom!!"
+                )
+            ]
+        ),
+        new Restaurant(
+            1,
+            "Doceria da Gigica",
+            "Avenida 25, 399, Apto 74",
+            "19.344.912/0001-09",
+            ["Assets/exampleLogo.png"],
+            [
+                new Dish(
+                    "Copo de morango com brownie",
+                    "Um delicioso copo com morango e brownie",
+                    ["Assets/exampleLogo.png"],
+                    30
+                )
+            ],
+            [
+                new Rating(
+                    5,
+                    "Muito bom!!"
+                )
+            ]
+        ),
+        new Restaurant(
+            1,
+            "Doceria da Gigica",
+            "Avenida 25, 399, Apto 74",
+            "19.344.912/0001-09",
+            ["Assets/exampleLogo.png"],
+            [
+                new Dish(
+                    "Copo de morango com brownie",
+                    "Um delicioso copo com morango e brownie",
+                    ["Assets/exampleLogo.png"],
+                    30
+                )
+            ],
+            [
+                new Rating(
+                    5,
+                    "Muito bom!!"
+                )
+            ]
+        ),
+        new Restaurant(
+            1,
+            "Doceria da Gigica",
+            "Avenida 25, 399, Apto 74",
+            "19.344.912/0001-09",
+            ["Assets/exampleLogo.png"],
+            [
+                new Dish(
+                    "Copo de morango com brownie",
+                    "Um delicioso copo com morango e brownie",
+                    ["Assets/exampleLogo.png"],
+                    30
+                )
+            ],
+            [
+                new Rating(
+                    5,
+                    "Muito bom!!"
+                )
+            ]
+        ),
+    ];
+
+    buscarRestaurantes() {
+        return this.restaurantes;
+    }
+
+    buscarRestaurantePorId(id) {
+        return this.buscarRestaurantes().find(
+            restaurante => restaurante.id === id
+        );
+    }
+
+    criarRestaurante(restaurante) {
+        this.buscarRestaurantes().push(restaurante);
+        return this.buscarRestaurantePorId(restaurante.id)
+    }
+}
