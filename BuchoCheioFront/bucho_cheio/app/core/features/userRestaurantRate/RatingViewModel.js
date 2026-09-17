@@ -1,9 +1,9 @@
-import { RatingService } from "./RatingService.js";
+import { RestauranteViewModel } from "../restaurantes/RestauranteViewModel.js";
 
 export class RatingViewModel {
 
     constructor() {
-        this.service = new RatingService();
+        this.restauranteViewModel = new RestauranteViewModel();
 
         this.restauranteSelecionado = null;
         this.avaliacoes = [];
@@ -17,14 +17,15 @@ export class RatingViewModel {
         this.erro = null;
 
         try {
-            const avaliacoes = await this.service.buscarAvaliacoesPorRestaurante(id);
+            await this.restauranteViewModel.selecionarRestaurante(id);
+            const restaurante = this.restauranteViewModel.restauranteSelecionado;
 
-            if (!avaliacoes) {
+            if (!restaurante) {
                 throw new Error("Restaurante não encontrado");
             }
 
-            this.restauranteSelecionado = avaliacoes.restaurante;
-            this.avaliacoes = avaliacoes.avaliacoes;
+            this.restauranteSelecionado = restaurante;
+            this.avaliacoes = restaurante.ratings ?? [];
         } catch (erro) {
             this.erro = erro.message;
         } finally {
