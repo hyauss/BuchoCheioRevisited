@@ -20,12 +20,8 @@
             <div class="rateText">
                 <h1 class="text titleText">Avaliação</h1>
             </div>
-            <div class="restaurantRating">
-                <img src="Assets/star.png" alt="Estrela de avaliação">
-                <img src="Assets/star.png" alt="Estrela de avaliação">
-                <img src="Assets/star.png" alt="Estrela de avaliação">
-                <img src="Assets/star.png" alt="Estrela de avaliação">
-                <img src="Assets/star.png" alt="Estrela de avaliação">
+            <div class="restaurantRating" id="restaurantRating" aria-live="polite">
+                <span class="ratingAverage" id="ratingAverage">Sem avaliações</span>
             </div>
             <button class="rateButtonText grayButton" id="openRatingDialog" type="button">Avaliação</button>
             <div class="ratingCardsScroll" id="restaurantRatings"></div>
@@ -46,19 +42,19 @@
     </main>
 
     <dialog class="ratingDialog" id="ratingDialog">
-        <form method="dialog" class="ratingDialogContent">
+        <form method="dialog" class="ratingDialogContent" id="ratingForm">
             <button class="ratingDialogClose" type="submit" aria-label="Fechar">&times;</button>
             <h2>Avaliar restaurante</h2>
-            <div class="restaurantRatingCard">
-                <img src="Assets/blackstar.svg" alt="Estrela de avaliação">
-                <img src="Assets/blackstar.svg" alt="Estrela de avaliação">
-                <img src="Assets/blackstar.svg" alt="Estrela de avaliação">
-                <img src="Assets/blackstar.svg" alt="Estrela de avaliação">
-                <img src="Assets/blackstar.svg" alt="Estrela de avaliação">
+            <div class="restaurantRatingCard ratingStars" id="ratingStars" role="group" aria-label="Escolha a nota">
+                <button type="button" class="ratingStar" data-rating="1" aria-label="1 estrela"><img src="Assets/blackstar.svg" alt=""></button>
+                <button type="button" class="ratingStar" data-rating="2" aria-label="2 estrelas"><img src="Assets/blackstar.svg" alt=""></button>
+                <button type="button" class="ratingStar" data-rating="3" aria-label="3 estrelas"><img src="Assets/blackstar.svg" alt=""></button>
+                <button type="button" class="ratingStar" data-rating="4" aria-label="4 estrelas"><img src="Assets/blackstar.svg" alt=""></button>
+                <button type="button" class="ratingStar" data-rating="5" aria-label="5 estrelas"><img src="Assets/blackstar.svg" alt=""></button>
             </div>
             <label class="ratingCommentLabel" for="ratingComment">Comentário</label>
             <textarea id="ratingComment" name="ratingComment" rows="5" placeholder="Conte o que achou..."></textarea>
-            <button class="grayButton ratingDialogSubmit" type="submit">Avaliar</button>
+            <button class="grayButton ratingDialogSubmit" id="submitRating" type="submit">Avaliar</button>
         </form>
     </dialog>
 
