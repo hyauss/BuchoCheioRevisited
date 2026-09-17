@@ -15,8 +15,8 @@
                 <a href="../restaurantes/restaurantes.html">
                     <img src="Assets/chevron.left.circle.svg" alt="back" class="backButton">
                 </a>
-                <h1 class="text titleText">Nome Restaurante</h1>
-                <a href="../userRestaurantRate/rating.html">
+                <h1 class="text titleText" id="restaurantName">Nome Restaurante</h1>
+                <a id="rateRestaurantLink" href="../userRestaurantRate/rating.html">
                     <h3 class="rateButtonText grayButton">Avaliar</h3> 
                 </a>
             </div>
@@ -30,82 +30,17 @@
         </section>
         <section class="foodHighlightSection">
             <h2 class="text subtitle">Destaques</h2>
-            <div class="foodCards">
-                <article class="foodCard">
-                    <img src="Assets/foodimage.png" alt="food image" class="foodImage">
-                    <div class="foodText">
-                        <h2 class="text foodTitle">Yaksoba Show</h2>
-                        <p class="text foodDescription">Yaksoba com macarrão, uns legumes, carnezinha legal e muito amor</p>
-                        <h1 class="text foodPrice">R$ 49,95</h1>
-                    </div>
-                </article>
-                <article class="foodCard">
-                    <img src="Assets/foodimage.png" alt="food image" class="foodImage">
-                    <div class="foodText">
-                        <h2 class="text foodTitle">Yaksoba Show</h2>
-                        <p class="text foodDescription">Yaksoba com macarrão, uns legumes, carnezinha legal e muito amor</p>
-                        <h1 class="text foodPrice">R$ 49,95</h1>
-                    </div>
-                </article>
-                <article class="foodCard">
-                    <img src="Assets/foodimage.png" alt="food image" class="foodImage">
-                    <div class="foodText">
-                        <h2 class="text foodTitle">Yaksoba Show</h2>
-                        <p class="text foodDescription">Yaksoba com macarrão, uns legumes, carnezinha legal e muito amor</p>
-                        <h1 class="text foodPrice">R$ 49,95</h1>
-                    </div>
-                </article>
-                <article class="foodCard">
-                    <img src="Assets/foodimage.png" alt="food image" class="foodImage">
-                    <div class="foodText">
-                        <h2 class="text foodTitle">Yaksoba Show</h2>
-                        <p class="text foodDescription">Yaksoba com macarrão, uns legumes, carnezinha legal e muito amor</p>
-                        <h1 class="text foodPrice">R$ 49,95</h1>
-                    </div>
-                </article>
-            </div>
+            <div class="foodCards" id="highlightedDishes"></div>
         </section>
         <section class="menuSection">
             <h2 class="text subtitle">Cardápio</h2>
-            <div class="foodCardsMenu">
-                <article class="foodCardMenu">
-                    <img src="Assets/foodimage2.png" alt="food image">
-                    <div class="foodTextMenu">
-                        <h2 class="text foodTitle">Yaksoba Show</h2>
-                        <p class="text foodDescription">Yaksoba com macarrão, uns legumes, carnezinha legal e muito amor</p>
-                        <h1 class="text foodPrice">R$ 49,95</h1>
-                    </div>
-                </article>
-                <article class="foodCardMenu">
-                    <img src="Assets/foodimage2.png" alt="food image">
-                    <div class="foodTextMenu">
-                        <h2 class="text foodTitle">Yaksoba Show</h2>
-                        <p class="text foodDescription">Yaksoba com macarrão, uns legumes, carnezinha legal e muito amor</p>
-                        <h1 class="text foodPrice">R$ 49,95</h1>
-                    </div>
-                </article>
-                <article class="foodCardMenu">
-                    <img src="Assets/foodimage2.png" alt="food image">
-                    <div class="foodTextMenu">
-                        <h2 class="text foodTitle">Yaksoba Show</h2>
-                        <p class="text foodDescription">Yaksoba com macarrão, uns legumes, carnezinha legal e muito amor</p>
-                        <h1 class="text foodPrice">R$ 49,95</h1>
-                    </div>
-                </article>
-                <article class="foodCardMenu">
-                    <img src="Assets/foodimage2.png" alt="food image">
-                    <div class="foodTextMenu">
-                        <h2 class="text foodTitle">Yaksoba Show</h2>
-                        <p class="text foodDescription">Yaksoba com macarrão, uns legumes, carnezinha legal e muito amor</p>
-                        <h1 class="text foodPrice">R$ 49,95</h1>
-                    </div>
-                </article>
-            </div>
+            <div class="foodCardsMenu" id="menuDishes"></div>
         </section>
     </main>
 
     <footer class="mainPagesFooter footerText">footerInformation</footer>
 
     <script src="../../DesingSystem/Components/components.js"></script>
+    <script type="module" src="./menu.js"></script>
 </body>
 </html>
