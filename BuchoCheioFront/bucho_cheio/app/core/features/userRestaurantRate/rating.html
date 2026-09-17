@@ -15,100 +15,52 @@
                 <a href="../userMenu/menu.html">
                     <img src="Assets/chevron.left.circle.svg" alt="back" class="backButton">
                 </a>
-                <h1 class="text titleText">Nome Restaurante</h1>
+                <h1 class="text titleText" id="restaurantName">Nome Restaurante</h1>
             </div>
             <div class="rateText">
                 <h1 class="text titleText">Avaliação</h1>
             </div>
-            <div class="restaurantRating">
-                <img src="Assets/star.png" alt="Estrela de avaliação">
-                <img src="Assets/star.png" alt="Estrela de avaliação">
-                <img src="Assets/star.png" alt="Estrela de avaliação">
-                <img src="Assets/star.png" alt="Estrela de avaliação">
-                <img src="Assets/star.png" alt="Estrela de avaliação">
+            <div class="restaurantRating" id="restaurantRating" aria-live="polite">
+                <span class="ratingAverage" id="ratingAverage">Sem avaliações</span>
             </div>
             <button class="rateButtonText grayButton" id="openRatingDialog" type="button">Avaliação</button>
-            <div class="ratingCardsScroll">
-                <article>
-                    <img class="headerImages" src="Assets/person.crop.circle.png" alt="Imagem de perfil">
-                    <div class="restaurantRatingCard">
-                        <img src="Assets/blackstar.svg" alt="Estrela de avaliação">
-                        <img src="Assets/blackstar.svg" alt="Estrela de avaliação">
-                        <img src="Assets/blackstar.svg" alt="Estrela de avaliação">
-                        <img src="Assets/blackstar.svg" alt="Estrela de avaliação">
-                        <img src="Assets/blackstar.svg" alt="Estrela de avaliação">
-                    </div>
-                    <h2 class="foodName">Yaksoba Show</h2>
-                    <p>Realmente muito bom! Mas gostaria de repetir o molho. Queria muito molho. Muito molho mesmo</p>
-                </article>
-                <article>
-                    <img class="headerImages" src="Assets/person.crop.circle.png" alt="Imagem de perfil">
-                    <div class="restaurantRatingCard">
-                        <img src="Assets/blackstar.svg" alt="Estrela de avaliação">
-                        <img src="Assets/blackstar.svg" alt="Estrela de avaliação">
-                        <img src="Assets/blackstar.svg" alt="Estrela de avaliação">
-                        <img src="Assets/blackstar.svg" alt="Estrela de avaliação">
-                        <img src="Assets/blackstar.svg" alt="Estrela de avaliação">
-                    </div>
-                    <h2 class="foodName">Yaksoba Show</h2>
-                    <p>Realmente muito bom! Mas gostaria de repetir o molho. Queria muito molho. Muito molho mesmo</p>
-                </article>
-                <article>
-                    <img class="headerImages" src="Assets/person.crop.circle.png" alt="Imagem de perfil">
-                    <div class="restaurantRatingCard">
-                        <img src="Assets/blackstar.svg" alt="Estrela de avaliação">
-                        <img src="Assets/blackstar.svg" alt="Estrela de avaliação">
-                        <img src="Assets/blackstar.svg" alt="Estrela de avaliação">
-                        <img src="Assets/blackstar.svg" alt="Estrela de avaliação">
-                        <img src="Assets/blackstar.svg" alt="Estrela de avaliação">
-                    </div>
-                    <h2 class="foodName">Yaksoba Show</h2>
-                    <p>Realmente muito bom! Mas gostaria de repetir o molho. Queria muito molho. Muito molho mesmo</p>
-                </article>
-            </div>
+            <div class="ratingCardsScroll" id="restaurantRatings"></div>
         </section>
         <section class="restInfoCard">
-            <img src="Assets/tiozao.png" alt="Restaurante foto">
+            <img id="restaurantImage" src="Assets/tiozao.png" alt="Restaurante foto">
             <div class="restaurentImages">
                 <img src="Assets/restImage.png" alt="Foto do restaurante">
                 <img src="Assets/restImage.png" alt="Foto do restaurante">
                 <img src="Assets/restImage.png" alt="Foto do restaurante">
             </div>
             <footer>
-                <p>Restaurante XXXX</p>
-                <p>CNPJ: xxxx.ssss.gggg.eee</p>
-                <p>Endereço: Rua yyyyyyyyy, 234</p>
+                <p id="restaurantInfoName">Restaurante XXXX</p>
+                <p id="restaurantInfoCnpj">CNPJ: xxxx.ssss.gggg.eee</p>
+                <p id="restaurantInfoAddress">Endereço: Rua yyyyyyyyy, 234</p>
             </footer>
         </section>
     </main>
 
     <dialog class="ratingDialog" id="ratingDialog">
-        <form method="dialog" class="ratingDialogContent">
+        <form method="dialog" class="ratingDialogContent" id="ratingForm">
             <button class="ratingDialogClose" type="submit" aria-label="Fechar">&times;</button>
             <h2>Avaliar restaurante</h2>
-            <div class="restaurantRatingCard">
-                <img src="Assets/blackstar.svg" alt="Estrela de avaliação">
-                <img src="Assets/blackstar.svg" alt="Estrela de avaliação">
-                <img src="Assets/blackstar.svg" alt="Estrela de avaliação">
-                <img src="Assets/blackstar.svg" alt="Estrela de avaliação">
-                <img src="Assets/blackstar.svg" alt="Estrela de avaliação">
+            <div class="restaurantRatingCard ratingStars" id="ratingStars" role="group" aria-label="Escolha a nota">
+                <button type="button" class="ratingStar" data-rating="1" aria-label="1 estrela"><img src="Assets/blackstar.svg" alt=""></button>
+                <button type="button" class="ratingStar" data-rating="2" aria-label="2 estrelas"><img src="Assets/blackstar.svg" alt=""></button>
+                <button type="button" class="ratingStar" data-rating="3" aria-label="3 estrelas"><img src="Assets/blackstar.svg" alt=""></button>
+                <button type="button" class="ratingStar" data-rating="4" aria-label="4 estrelas"><img src="Assets/blackstar.svg" alt=""></button>
+                <button type="button" class="ratingStar" data-rating="5" aria-label="5 estrelas"><img src="Assets/blackstar.svg" alt=""></button>
             </div>
             <label class="ratingCommentLabel" for="ratingComment">Comentário</label>
             <textarea id="ratingComment" name="ratingComment" rows="5" placeholder="Conte o que achou..."></textarea>
-            <button class="grayButton ratingDialogSubmit" type="submit">Avaliar</button>
+            <button class="grayButton ratingDialogSubmit" id="submitRating" type="submit">Avaliar</button>
         </form>
     </dialog>
 
     <footer class="mainPagesFooter footerText">footerInformation</footer>
 
     <script src="../../DesingSystem/Components/components.js"></script>
-    <script>
-        const ratingDialog = document.getElementById("ratingDialog");
-        const openRatingDialog = document.getElementById("openRatingDialog");
-
-        openRatingDialog.addEventListener("click", () => {
-            ratingDialog.showModal();
-        });
-    </script>
+    <script type="module" src="./rating.js"></script>
 </body>
 </html>
