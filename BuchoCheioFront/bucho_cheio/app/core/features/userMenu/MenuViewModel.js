@@ -1,9 +1,9 @@
-import { MenuService } from "./MenuService.js";
+import { RestauranteViewModel } from "../restaurantes/RestauranteViewModel.js";
 
 export class MenuViewModel {
 
     constructor() {
-        this.service = new MenuService();
+        this.restauranteViewModel = new RestauranteViewModel();
 
         this.restauranteSelecionado = null;
         this.pratos = [];
@@ -17,14 +17,15 @@ export class MenuViewModel {
         this.erro = null;
 
         try {
-            const cardapio = await this.service.buscarCardapioPorRestaurante(id);
+            await this.restauranteViewModel.selecionarRestaurante(id);
+            const restaurante = this.restauranteViewModel.restauranteSelecionado;
 
-            if (!cardapio) {
+            if (!restaurante) {
                 throw new Error("Restaurante não encontrado");
             }
 
-            this.restauranteSelecionado = cardapio.restaurante;
-            this.pratos = cardapio.pratos;
+            this.restauranteSelecionado = restaurante;
+            this.pratos = restaurante.dishes;
         } catch (erro) {
             this.erro = erro.message;
         } finally {
