@@ -1,6 +1,46 @@
 @import "../../DesingSystem/style.css";
 
 main {
+    --pTextFontSize: 4vw;
+    --titleTextFontSize: 9.5vw;
+    --titleTextPaddingBottom: 1.2vh;
+    --imageLabelTextFontSize: 5.5vw;
+
+    --informationSectionMaxWidth: 85vw;
+    --informationSectionPaddingTop: 10vh;
+    --informationSectionPaddingBottom: 5vh;
+
+    --navigationSectionGap: 4vh;
+    --navigationSectionPaddingBottom: 15vh;
+    --navigationSectionImagensHeight: auto;
+    --navigationSectionImagensWidth: 70vw;
+    --navigationSectionImagensPaddingBottom: 1.2vh;
+    --navigationSectionFlexDirection: column;
+    --informationSectionFlexDirection: flex-start;
+}
+
+@media(min-width: 768px) {
+    main {
+        --pTextFontSize: 1.4vw;
+        --titleTextFontSize: 4.5vw;
+        --titleTextPaddingBottom: 1vh;
+        --imageLabelTextFontSize: 1.7vw;
+
+        --informationSectionMaxWidth: 60vw;
+        --informationSectionPaddingTop: 12vh;
+        --informationSectionPaddingBottom: 7vh;
+        --informationSectionFlexDirection: flex-start;
+
+        --navigationSectionGap: 3.3vw;
+        --navigationSectionPaddingBottom: 20vh;
+        --navigationSectionImagensHeight: auto;
+        --navigationSectionImagensWidth: 18vw;
+        --navigationSectionImagensPaddingBottom: 1vh;
+        --navigationSectionFlexDirection: row;
+    }
+}
+
+main {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -8,39 +48,40 @@ main {
 }
 
 .pText {
-    font-size: 20px;
+    font-size: var(--pTextFontSize);
+    text-align: justify;
 }
 
 .titleText {
-    font-size: 64px;
-    padding-bottom: 10px;
+    font-size: var(--titleTextFontSize);
+    padding-bottom: var(--titleTextPaddingBottom);
 }
 
 .imageLabelText {
-    font-size: 24px;
+    font-size: var(--imageLabelTextFontSize);
     font-weight: lighter;
 }
 
 .informationSection {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    max-width: 864px;
-    padding-top: 115px;
-    padding-bottom: 63px;
+    align-items: var(--informationSectionFlexDirection);
+    max-width: var(--informationSectionMaxWidth);
+    padding-top: var(--informationSectionPaddingTop);
+    padding-bottom: var(--informationSectionPaddingBottom);
 }
 
 .navigationSection {
     display: flex;
-    flex-direction: row;
-    gap: 48px;
-    padding-bottom: 309px;
+    flex-direction: var(--navigationSectionFlexDirection);
+    gap: var(--navigationSectionGap);
+    padding-bottom: var(--navigationSectionPaddingBottom);
 }
 
 .navigationSectionImagens {
-    height: 100px;
-    width: 256px;
-    padding-bottom: 10px;
+    height: var(--navigationSectionImagensHeight);
+    width: var(--navigationSectionImagensWidth);
+    padding-bottom: var(--navigationSectionImagensPaddingBottom);
 }
 
 article {
