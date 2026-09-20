@@ -1,25 +1,43 @@
 header {
+    /* Utilizando clamp para moficação de tamanha como implementação alternativa a @media*/
+    --headerGap: clamp(8px, 1.2vw, 16px);
+    --headerPaddingTop: clamp(12px, 2vh, 20px);
+    --headerPaddingX: clamp(16px, 2.5vw, 32px);
+    --headerImageWidth: clamp(36px, 3.5vw, 48px);
+    --headerImageHeight: clamp(35px, 3.4vw, 47px);
+    --headerTextFontSize: clamp(13px, 1.2vw, 16px);
+
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 13px;
-    padding-top: 20px;
-    padding-left: 24px;
-    padding-right: 24px;
+    gap: var(--headerGap);
+    padding-top: var(--headerPaddingTop);
+    padding-left: var(--headerPaddingX);
+    padding-right: var(--headerPaddingX);
     width: 100%;
     box-sizing: border-box;
 }
 
+.mobileOption{
+    display: none;
+}
+
+@media(min-width: 768px) {
+    .mobileOption {
+        display: block;
+    }
+}
+
 .headerImages {
-    height: 47px;
-    width: 48px;
+    height: var(--headerImageHeight);
+    width: var(--headerImageWidth);
     object-fit: contain;
     display: block;
 }
 
 .headertext,
 .headerText {
-    font-size: 16px;
+    font-size: var(--headerTextFontSize);
     color: white;
 }
 
@@ -31,3 +49,5 @@ header {
 .profileImage {
     margin-left: auto;
 }
+
+
