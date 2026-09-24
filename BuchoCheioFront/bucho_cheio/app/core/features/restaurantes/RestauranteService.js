@@ -12,6 +12,11 @@ restaurantes = [
             "19.344.912/0001-09",
             ["Assets/exampleLogo.png"],
             [
+                "Assets/restImage.png",
+                "Assets/restImage.png",
+                "Assets/restImage.png"
+            ],
+            [
                 new Dish(
                     "Copo de morango com brownie",
                     "Um delicioso copo com morango e brownie",
@@ -32,6 +37,11 @@ restaurantes = [
             "Avenida 25, 399, Apto 74",
             "19.344.912/0001-09",
             ["Assets/exampleLogo.png"],
+            [
+                "Assets/restImage.png",
+                "Assets/restImage.png",
+                "Assets/restImage.png"
+            ],
             [
                 new Dish(
                     "Copo de morango com brownie",
@@ -66,6 +76,11 @@ restaurantes = [
             "19.344.912/0001-09",
             ["Assets/exampleLogo.png"],
             [
+                "Assets/restImage.png",
+                "Assets/restImage.png",
+                "Assets/restImage.png"
+            ],
+            [
                 new Dish(
                     "Copo de morango com brownie",
                     "Um delicioso copo com morango e brownie",
@@ -95,6 +110,11 @@ restaurantes = [
             "19.344.912/0001-09",
             ["Assets/exampleLogo.png"],
             [
+                "Assets/restImage.png",
+                "Assets/restImage.png",
+                "Assets/restImage.png"
+            ],
+            [
                 new Dish(
                     "Copo de morango com brownie",
                     "Um delicioso copo com morango e brownie",
@@ -120,6 +140,11 @@ restaurantes = [
             "Avenida 25, 399, Apto 74",
             "19.344.912/0001-09",
             ["Assets/exampleLogo.png"],
+            [
+                "Assets/restImage.png",
+                "Assets/restImage.png",
+                "Assets/restImage.png"
+            ],
             [
                 new Dish(
                     "Copo de morango com brownie",

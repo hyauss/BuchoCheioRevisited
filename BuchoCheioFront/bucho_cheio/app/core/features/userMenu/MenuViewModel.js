@@ -15,7 +15,7 @@ export class MenuViewModel {
     async selecionarRestaurante(id) {
         this.carregando = true;
         this.erro = null;
-
+        
         try {
             await this.restauranteViewModel.selecionarRestaurante(id);
             const restaurante = this.restauranteViewModel.restauranteSelecionado;
