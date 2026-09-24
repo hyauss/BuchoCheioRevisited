@@ -10,7 +10,7 @@ restaurantes = [
             "Doceria da Gigica",
             "Avenida 25, 399, Apto 74",
             "19.344.912/0001-09",
-            ["Assets/exampleLogo.png"]
+            ["Assets/exampleLogo.png"],
             [
                 "Assets/restImage.png",
                 "Assets/restImage.png",
@@ -36,7 +36,7 @@ restaurantes = [
             "Doceria da Gigica",
             "Avenida 25, 399, Apto 74",
             "19.344.912/0001-09",
-            ["Assets/exampleLogo.png"]
+            ["Assets/exampleLogo.png"],
             [
                 "Assets/restImage.png",
                 "Assets/restImage.png",
@@ -74,7 +74,7 @@ restaurantes = [
             "Doceria da Gigica",
             "Avenida 25, 399, Apto 74",
             "19.344.912/0001-09",
-            ["Assets/exampleLogo.png"]
+            ["Assets/exampleLogo.png"],
             [
                 "Assets/restImage.png",
                 "Assets/restImage.png",
@@ -108,7 +108,7 @@ restaurantes = [
             "Doceria da Gigica",
             "Avenida 25, 399, Apto 74",
             "19.344.912/0001-09",
-            ["Assets/exampleLogo.png"]
+            ["Assets/exampleLogo.png"],
             [
                 "Assets/restImage.png",
                 "Assets/restImage.png",
@@ -139,7 +139,7 @@ restaurantes = [
             "Doceria da Gigica",
             "Avenida 25, 399, Apto 74",
             "19.344.912/0001-09",
-            ["Assets/exampleLogo.png"]
+            ["Assets/exampleLogo.png"],
             [
                 "Assets/restImage.png",
                 "Assets/restImage.png",

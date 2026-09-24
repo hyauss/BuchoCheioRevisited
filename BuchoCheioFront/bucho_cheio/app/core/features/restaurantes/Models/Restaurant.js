@@ -15,7 +15,7 @@ export class Restaurant {
         this.address = address;
         this.CNPJ = CNPJ;
         this.medias = medias;
-        this.restImages = restImages
+        this.restImages = restImages;
         this.dishes = dishes;
         this.ratings = ratings;
     }

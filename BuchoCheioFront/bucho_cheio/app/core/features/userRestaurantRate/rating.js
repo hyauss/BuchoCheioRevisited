@@ -122,7 +122,7 @@ function renderRating(restaurante) {
     restaurantInfoCnpj.textContent = `CNPJ: ${restaurante.CNPJ}`;
     restaurantInfoAddress.textContent = `Endereço: ${restaurante.address}`;
     restaurantImage.src = obterImagem(restaurante.medias[0], "Assets/tiozao.png");
-    restaurantImages = renderRestaurantImages(restaurante.restImages ?? []);
+    renderRestaurantImages(restaurante.restImages ?? []);
     backLink.href = `../userMenu/menu.html?id=${restaurante.id}`;
     atualizarRatingGeral();
 
@@ -160,7 +160,6 @@ function renderRestaurantImages(imagens) {
         const image = document.createElement("img");
         image.src = imagem;
         image.alt = "Foto do restaurante";
-
         restaurantImages.appendChild(image);
     });
 }
