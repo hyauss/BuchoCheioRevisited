@@ -17,6 +17,7 @@ const openRatingDialog = document.querySelector("#openRatingDialog");
 const ratingForm = document.querySelector("#ratingForm");
 const ratingComment = document.querySelector("#ratingComment");
 const ratingStars = document.querySelectorAll(".ratingStar");
+const restaurantImages = document.querySelector("#restaurantImages");
 
 let notaSelecionada = 5;
 
@@ -121,6 +122,7 @@ function renderRating(restaurante) {
     restaurantInfoCnpj.textContent = `CNPJ: ${restaurante.CNPJ}`;
     restaurantInfoAddress.textContent = `Endereço: ${restaurante.address}`;
     restaurantImage.src = obterImagem(restaurante.medias[0], "Assets/tiozao.png");
+    restaurantImages = renderRestaurantImages(restaurante.restImages ?? []);
     backLink.href = `../userMenu/menu.html?id=${restaurante.id}`;
     atualizarRatingGeral();
 
@@ -149,6 +151,18 @@ async function inicializar() {
     if (viewModel.restauranteSelecionado) {
         renderRating(viewModel.restauranteSelecionado);
     }
+}
+
+function renderRestaurantImages(imagens) {
+    restaurantImages.innerHTML = "";
+
+    imagens.forEach(imagem => {
+        const image = document.createElement("img");
+        image.src = imagem;
+        image.alt = "Foto do restaurante";
+
+        restaurantImages.appendChild(image);
+    });
 }
 
 inicializar();

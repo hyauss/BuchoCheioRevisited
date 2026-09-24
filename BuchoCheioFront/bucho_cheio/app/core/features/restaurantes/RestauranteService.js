@@ -10,7 +10,12 @@ restaurantes = [
             "Doceria da Gigica",
             "Avenida 25, 399, Apto 74",
             "19.344.912/0001-09",
-            ["Assets/exampleLogo.png"],
+            ["Assets/exampleLogo.png"]
+            [
+                "Assets/restImage.png",
+                "Assets/restImage.png",
+                "Assets/restImage.png"
+            ],
             [
                 new Dish(
                     "Copo de morango com brownie",
@@ -31,7 +36,12 @@ restaurantes = [
             "Doceria da Gigica",
             "Avenida 25, 399, Apto 74",
             "19.344.912/0001-09",
-            ["Assets/exampleLogo.png"],
+            ["Assets/exampleLogo.png"]
+            [
+                "Assets/restImage.png",
+                "Assets/restImage.png",
+                "Assets/restImage.png"
+            ],
             [
                 new Dish(
                     "Copo de morango com brownie",
@@ -64,7 +74,12 @@ restaurantes = [
             "Doceria da Gigica",
             "Avenida 25, 399, Apto 74",
             "19.344.912/0001-09",
-            ["Assets/exampleLogo.png"],
+            ["Assets/exampleLogo.png"]
+            [
+                "Assets/restImage.png",
+                "Assets/restImage.png",
+                "Assets/restImage.png"
+            ],
             [
                 new Dish(
                     "Copo de morango com brownie",
@@ -93,7 +108,12 @@ restaurantes = [
             "Doceria da Gigica",
             "Avenida 25, 399, Apto 74",
             "19.344.912/0001-09",
-            ["Assets/exampleLogo.png"],
+            ["Assets/exampleLogo.png"]
+            [
+                "Assets/restImage.png",
+                "Assets/restImage.png",
+                "Assets/restImage.png"
+            ],
             [
                 new Dish(
                     "Copo de morango com brownie",
@@ -119,7 +139,12 @@ restaurantes = [
             "Doceria da Gigica",
             "Avenida 25, 399, Apto 74",
             "19.344.912/0001-09",
-            ["Assets/exampleLogo.png"],
+            ["Assets/exampleLogo.png"]
+            [
+                "Assets/restImage.png",
+                "Assets/restImage.png",
+                "Assets/restImage.png"
+            ],
             [
                 new Dish(
                     "Copo de morango com brownie",

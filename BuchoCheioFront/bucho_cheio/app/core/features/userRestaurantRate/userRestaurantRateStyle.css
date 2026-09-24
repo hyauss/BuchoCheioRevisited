@@ -111,6 +111,11 @@ main {
     height: 202px;
 }
 
+.ratingCardsScroll .headerImages {
+    height: 32px;
+    width: 32px;
+}
+
 .foodName {
     font-size: 20px;
     margin: 8px 0;
