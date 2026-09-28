@@ -151,7 +151,31 @@ restaurantes = [
                     "Um delicioso copo com morango e brownie",
                     ["Assets/exampleLogo.png"],
                     30
-                )
+                ),
+                new Dish(
+                    "Copo de banana com brownie",
+                    "Um delicioso copo com banana e brownie",
+                    ["Assets/exampleLogo.png"],
+                    30
+                ),
+                new Dish(
+                    "Copo de açaí com brownie",
+                    "Um delicioso copo com açaí e brownie",
+                    ["Assets/exampleLogo.png"],
+                    30
+                ),
+                new Dish(
+                    "Copo de banana com brownie",
+                    "Um delicioso copo com banana e brownie",
+                    ["Assets/exampleLogo.png"],
+                    30
+                ),
+                new Dish(
+                    "Copo de kiwi com brownie",
+                    "Um delicioso copo com kiwi e brownie",
+                    ["Assets/exampleLogo.png"],
+                    30
+                ),
             ],
             [
                 new Rating(
