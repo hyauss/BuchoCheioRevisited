@@ -10,21 +10,25 @@
     <custom-header></custom-header>
     
     <main>
-        <section class="restaurantTitleSection">
-            <div class="restaurantHeading">
-                <a href="../userMenu/menu.html">
-                    <img src="Assets/chevron.left.circle.svg" alt="back" class="backButton">
-                </a>
-                <h1 class="text titleText" id="restaurantName">Nome Restaurante</h1>
-            </div>
-            <div class="rateText">
-                <h1 class="text titleText">Avaliação</h1>
-            </div>
-            <div class="restaurantRating" id="restaurantRating" aria-live="polite">
-                <span class="ratingAverage" id="ratingAverage">Sem avaliações</span>
-            </div>
-            <button class="rateButtonText grayButton" id="openRatingDialog" type="button">Avaliação</button>
-            <div class="ratingCardsScroll" id="restaurantRatings"></div>
+        <section class="sectionRestauranteInfo">
+            <article class="restaurantTitleSection">
+                <div class="restaurantHeading">
+                    <a href="../userMenu/menu.html">
+                        <img src="Assets/chevron.left.circle.svg" alt="back" class="backButton">
+                    </a>
+                    <h1 class="text titleText" id="restaurantName">Nome Restaurante</h1>
+                </div>
+                <div class="rateText">
+                    <h1 class="text titleText">Avaliação</h1>
+                </div>
+                <div class="restaurantRating" id="restaurantRating" aria-live="polite">
+                    <span class="ratingAverage" id="ratingAverage">Sem avaliações</span>
+                </div>
+            </article>
+            <article class="ratingCardsSection">
+                <button class="rateButtonText grayButton" id="openRatingDialog" type="button">Avaliação</button>
+                <div class="ratingCardsScroll" id="restaurantRatings"></div>
+            </article>
         </section>
         <section class="restInfoCard">
             <img id="restaurantImage" src="Assets/tiozao.png" alt="Restaurante foto">

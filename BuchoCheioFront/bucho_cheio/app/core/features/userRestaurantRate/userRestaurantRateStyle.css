@@ -2,20 +2,38 @@
 
 main {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     padding-bottom: 60px;
 }
 
+/* Mobile: wrapper disappears so its children become direct flex items of main */
+.sectionRestauranteInfo  { display: contents; }
+.restaurantTitleSection  { order: 1; }
+.restInfoCard            { order: 2; }
+.ratingCardsSection      { order: 3; }
+
+@media(min-width: 924px) {
+    main{
+        flex-direction: row;
+    }
+    /* Desktop: wrapper acts as a normal block, grouping title + cards */
+    .sectionRestauranteInfo { display: block; }
+    .restaurantTitleSection,
+    .restInfoCard,
+    .ratingCardsSection { order: 0; }
+}
+
+
 .titleText {
-    font-size: 48px;
+    font-size: clamp(24px, 5vw, 48px);
     margin: 0;
     padding-left: 9px;
 }
 
 .backButton {
-    height: 47px;
-    width: 48px;
+    height: clamp(24px,5vw,47px);
+    width: clamp(24px,5vw,48px);
 }
 
 .restaurantTitleSection {
