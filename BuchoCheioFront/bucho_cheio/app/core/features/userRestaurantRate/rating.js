@@ -31,21 +31,39 @@ function criarEstrelas(quantidade, classe) {
     ).join("");
 }
 
+// function calcularMediaAvaliacoes(avaliacoes) {
+//     const quantidadePorNota = new Map();
+
+//     avaliacoes.forEach(avaliacao => {
+//         const quantidade = quantidadePorNota.get(avaliacao.stars) || 0;
+//         quantidadePorNota.set(avaliacao.stars, quantidade + 1);
+//     });
+
+//     const totalAvaliacoes = [...quantidadePorNota.values()]
+//         .reduce((total, quantidade) => total + quantidade, 0);
+//     const somaNotas = [...quantidadePorNota.entries()]
+//         .reduce((soma, [nota, quantidade]) => soma + nota * quantidade, 0);
+
+//     return totalAvaliacoes ? somaNotas / totalAvaliacoes : 0;
+// }
+
 function calcularMediaAvaliacoes(avaliacoes) {
-    const quantidadePorNota = new Map();
+    // Retorna 0 se o array for vazio ou indefinido
+    if (!avaliacoes || avaliacoes.length === 0) {
+        return 0;
+    }
 
-    avaliacoes.forEach(avaliacao => {
-        const quantidade = quantidadePorNota.get(avaliacao.stars) || 0;
-        quantidadePorNota.set(avaliacao.stars, quantidade + 1);
-    });
+    // 1. Usa o .map() para extrair apenas os números
+    // Exemplo: de [{stars: 5}, {stars: 4}] vira [5, 4]
+    const notas = avaliacoes.map(avaliacao => avaliacao.stars);
 
-    const totalAvaliacoes = [...quantidadePorNota.values()]
-        .reduce((total, quantidade) => total + quantidade, 0);
-    const somaNotas = [...quantidadePorNota.entries()]
-        .reduce((soma, [nota, quantidade]) => soma + nota * quantidade, 0);
+    // 2. Soma todas as notas
+    const somaNotas = notas.reduce((soma, nota) => soma + nota, 0);
 
-    return totalAvaliacoes ? somaNotas / totalAvaliacoes : 0;
+    // 3. Calcula a média (soma dividida pela quantidade de itens)
+    return somaNotas / notas.length;
 }
+
 
 function atualizarRatingGeral() {
     const media = calcularMediaAvaliacoes(viewModel.avaliacoes);
