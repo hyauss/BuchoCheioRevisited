@@ -14,7 +14,7 @@
             <article class="restaurantTitleSection">
                 <div class="restaurantHeading">
                     <a href="../userMenu/menu.html">
-                        <img src="Assets/chevron.left.circle.svg" alt="back" class="backButton">
+                        <span role="img" aria-label="Voltar" class="backButton"></span>
                     </a>
                     <h1 class="text titleText" id="restaurantName">Nome Restaurante</h1>
                 </div>
@@ -43,14 +43,14 @@
 
     <dialog class="ratingDialog" id="ratingDialog">
         <form method="dialog" class="ratingDialogContent" id="ratingForm">
-            <button class="ratingDialogClose" type="submit" aria-label="Fechar">&times;</button>
+            <button class="ratingDialogClose" type="submit" aria-label="Fechar"><span aria-hidden="true"></span></button>
             <h2>Avaliar restaurante</h2>
             <div class="restaurantRatingCard ratingStars" id="ratingStars" role="group" aria-label="Escolha a nota">
-                <button type="button" class="ratingStar" data-rating="1" aria-label="1 estrela"><img src="Assets/blackstar.svg" alt=""></button>
-                <button type="button" class="ratingStar" data-rating="2" aria-label="2 estrelas"><img src="Assets/blackstar.svg" alt=""></button>
-                <button type="button" class="ratingStar" data-rating="3" aria-label="3 estrelas"><img src="Assets/blackstar.svg" alt=""></button>
-                <button type="button" class="ratingStar" data-rating="4" aria-label="4 estrelas"><img src="Assets/blackstar.svg" alt=""></button>
-                <button type="button" class="ratingStar" data-rating="5" aria-label="5 estrelas"><img src="Assets/blackstar.svg" alt=""></button>
+                <button type="button" class="ratingStar" data-rating="1" aria-label="1 estrela"><span class="ratingButtonStar" aria-hidden="true"></span></button>
+                <button type="button" class="ratingStar" data-rating="2" aria-label="2 estrelas"><span class="ratingButtonStar" aria-hidden="true"></span></button>
+                <button type="button" class="ratingStar" data-rating="3" aria-label="3 estrelas"><span class="ratingButtonStar" aria-hidden="true"></span></button>
+                <button type="button" class="ratingStar" data-rating="4" aria-label="4 estrelas"><span class="ratingButtonStar" aria-hidden="true"></span></button>
+                <button type="button" class="ratingStar" data-rating="5" aria-label="5 estrelas"><span class="ratingButtonStar" aria-hidden="true"></span></button>
             </div>
             <label class="ratingCommentLabel" for="ratingComment">Comentário</label>
             <textarea id="ratingComment" name="ratingComment" rows="5" placeholder="Conte o que achou..."></textarea>

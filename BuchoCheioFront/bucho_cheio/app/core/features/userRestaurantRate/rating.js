@@ -51,7 +51,7 @@ function atualizarRatingGeral() {
     const media = calcularMediaAvaliacoes(viewModel.avaliacoes);
     const estrelasPreenchidas = Math.round(media);
 
-    restaurantRating.querySelectorAll("img").forEach(star => star.remove());
+    restaurantRating.querySelectorAll(".ratingStarIcon").forEach(star => star.remove());
     if (media === 0) {
         ratingAverage.textContent = "Sem avaliações";
         restaurantRating.setAttribute("aria-label", "Sem avaliações");
@@ -60,7 +60,7 @@ function atualizarRatingGeral() {
 
     restaurantRating.insertAdjacentHTML("afterbegin", Array.from(
         { length: estrelasPreenchidas },
-        () => '<img src="Assets/star.png" alt="Estrela de avaliação">'
+        () => '<span class="ratingStarIcon" role="img" aria-label="Estrela de avaliação"></span>'
     ).join(""));
     ratingAverage.textContent = `${media.toFixed(1).replace(".", ",")}/5`;
     restaurantRating.setAttribute("aria-label", `Média de ${media.toFixed(1)} de 5`);
@@ -70,7 +70,7 @@ function criarCardAvaliacao(avaliacao) {
     const article = document.createElement("article");
 
     article.innerHTML = `
-        <img class="headerImages" src="Assets/person.crop.circle.png" alt="Imagem de perfil">
+        <span class="profileImageIcon" role="img" aria-label="Imagem de perfil"></span>
         <div class="restaurantRatingCard">
             ${criarEstrelas(avaliacao.stars, "")}
         </div>

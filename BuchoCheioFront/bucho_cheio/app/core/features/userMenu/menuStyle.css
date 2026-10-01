@@ -18,8 +18,12 @@ main{
 }
 
 .backButton {
+    background-color: var(--accent-color);
     height: clamp(24px,5vw,47px);
     width: clamp(24px,5vw,48px);
+    display: block;
+    mask: url("Assets/chevron.left.circle.svg") center / contain no-repeat;
+    -webkit-mask: url("Assets/chevron.left.circle.svg") center / contain no-repeat;
 }
 
 .restaurantTitleSection {
@@ -55,12 +59,19 @@ main{
     text-decoration: underline;
 }
 
-.restaurantRating img {
+.restaurantRating > span {
+    background-color: var(--accent-color);
     height: 32px;
     width: 32px;
+    display: block;
+    mask: url("../../DesingSystem/Assets/star.svg") center / contain no-repeat;
+    -webkit-mask: url("../../DesingSystem/Assets/star.svg") center / contain no-repeat;
 }
 
 .restaurantRating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
     margin-left: clamp(16px, 5vw, 57px);
 }
 
@@ -72,10 +83,11 @@ main{
 }
 
 .foodCard {
-    background-color: #D9D9D9;
+    background-color: var(--card-color);
+    box-shadow: var(--card-shadow);
     display: flex;
     flex-direction: column;
-    border-radius: 10px;
+    border-radius: var(--corner-radius);
     min-height: 271px;
     flex: 0 0 80vw;
     max-width: 355px;
@@ -100,20 +112,20 @@ main{
 }
 
 .foodTitle {
-    color: #000;
+    color: var(--text-color);
     font-size: clamp(16px, 3vw, 24px);
     margin: 0;
     padding-bottom: 12px;
 }
 
 .foodDescription {
-    color: rgba(0, 0, 0, 0.61);
+    color: var(--text-color);
     margin: 0;
     font-size: 14px;
 }
 
 .foodPrice {
-    color: #000;
+    color: var(--text-color);
     margin: 0;
     font-size: clamp(16px, 3vw, 24px);
     padding-top: 21px;
@@ -140,10 +152,11 @@ main{
 }
 
 .foodCardMenu {
-    background-color: #D9D9D9;
+    background-color: var(--card-color);
+    box-shadow: var(--card-shadow);
     display: flex;
     gap: 8px;
-    border-radius: 10px;
+    border-radius: var(--corner-radius);
     min-height: 204.16px;
     width: 100%;
     overflow: hidden;
@@ -177,7 +190,7 @@ main{
     top: 0;
     width: 35%;
     height: 100%;
-    border-radius: 0 10px 10px 0;
+    border-radius: 0 var(--corner-radius) var(--corner-radius) 0;
     object-fit: cover;
 }
 
