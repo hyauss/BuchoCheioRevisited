@@ -53,14 +53,10 @@ function calcularMediaAvaliacoes(avaliacoes) {
         return 0;
     }
 
-    // 1. Usa o .map() para extrair apenas os números
-    // Exemplo: de [{stars: 5}, {stars: 4}] vira [5, 4]
     const notas = avaliacoes.map(avaliacao => avaliacao.stars);
 
-    // 2. Soma todas as notas
     const somaNotas = notas.reduce((soma, nota) => soma + nota, 0);
 
-    // 3. Calcula a média (soma dividida pela quantidade de itens)
     return somaNotas / notas.length;
 }
 
