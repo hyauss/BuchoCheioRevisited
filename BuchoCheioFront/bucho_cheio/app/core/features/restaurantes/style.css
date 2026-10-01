@@ -4,6 +4,19 @@ main {
     display: flex;
     align-self: center;
     flex-direction: column;
+    width: 100%;
+    --gridTemplateColumnsCardSection: 1fr;
+    --titleTextFontSize: 6vw;
+    --titleTextPaddingTop: 2vh;
+    --titleTextPaddingBottom: 2vh;
+    --cardTextFontSize: 3.5vw;
+    padding: 0 75px;
+}
+
+@media(min-width: 924px) {
+    main{
+        --gridTemplateColumnsCardSection: 1fr 1fr;
+    }
 }
 
 h1{
@@ -25,12 +38,11 @@ h1{
 
 .cardSection {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    flex-direction: row;
+    grid-template-columns: var(--gridTemplateColumnsCardSection);
     align-items: center;
     gap: 48px;
     padding-bottom: 309px;
-    align-self: flex-start;
+    width: 100%;
 }
 
 article {
@@ -38,27 +50,36 @@ article {
     display: flex;
     gap: 8px;
     border-radius: 10px;
-    height: 176px;
+    min-height: 120px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding-right: 35%;
 }
 
-a {
+article a {
     color: #4da6ff;
     padding-top: 22px;
     text-decoration: underline;
     align-self: center;
 }
 
-div{
+article div{
     display: flex;
     flex-direction: column;
     padding: 20px;
-    
+    flex: 1;
+    min-width: 0;
 }
 
-img{
-    max-width: 175px;
-    max-height: 175px;
-    border-radius: 10px;
+article img{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 35%;
+    height: 100%;
+    border-radius: 0 10px 10px 0;
+    object-fit: cover;
 }
 
 .cardText {
@@ -71,4 +92,5 @@ p{
 
 .cardButton{
     margin: 0px;
+    width: 100%;
 }
