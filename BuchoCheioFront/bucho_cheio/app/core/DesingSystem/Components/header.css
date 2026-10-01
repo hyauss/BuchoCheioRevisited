@@ -18,6 +18,10 @@ header {
     box-sizing: border-box;
 }
 
+header button {
+    background-color: transparent;
+}
+
 .mobileOption{
     display: none;
 }
@@ -35,10 +39,28 @@ header {
     display: block;
 }
 
+.profileImageIcon {
+    background-color: var(--accent-color);
+    height: var(--headerImageHeight);
+    width: var(--headerImageWidth);
+    display: block;
+    mask: url("../Assets/person.crop.circle.svg") center / contain no-repeat;
+    -webkit-mask: url("../Assets/person.crop.circle.svg") center / contain no-repeat;
+}
+
+.brandImage {
+    background-color: var(--accent-color);
+    height: var(--headerImageHeight);
+    width: var(--headerImageWidth);
+    display: block;
+    mask: url("../Assets/fork.knife.circle.svg") center / contain no-repeat;
+    -webkit-mask: url("../Assets/fork.knife.circle.svg") center / contain no-repeat;
+}
+
 .headertext,
 .headerText {
     font-size: var(--headerTextFontSize);
-    color: white;
+    color: var(--text-color);
 }
 
 .headerText.active,

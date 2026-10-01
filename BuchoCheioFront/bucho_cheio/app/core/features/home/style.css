@@ -79,9 +79,15 @@ main {
 }
 
 .navigationSectionImagens {
+    border-radius: var(--corner-radius);
     height: var(--navigationSectionImagensHeight);
     width: var(--navigationSectionImagensWidth);
     padding-bottom: var(--navigationSectionImagensPaddingBottom);
+}
+
+.navigationSection button {
+    border-radius: var(--corner-radius);
+    overflow: hidden;
 }
 
 article {

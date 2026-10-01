@@ -31,27 +31,41 @@ function criarEstrelas(quantidade, classe) {
     ).join("");
 }
 
+// function calcularMediaAvaliacoes(avaliacoes) {
+//     const quantidadePorNota = new Map();
+
+//     avaliacoes.forEach(avaliacao => {
+//         const quantidade = quantidadePorNota.get(avaliacao.stars) || 0;
+//         quantidadePorNota.set(avaliacao.stars, quantidade + 1);
+//     });
+
+//     const totalAvaliacoes = [...quantidadePorNota.values()]
+//         .reduce((total, quantidade) => total + quantidade, 0);
+//     const somaNotas = [...quantidadePorNota.entries()]
+//         .reduce((soma, [nota, quantidade]) => soma + nota * quantidade, 0);
+
+//     return totalAvaliacoes ? somaNotas / totalAvaliacoes : 0;
+// }
+
 function calcularMediaAvaliacoes(avaliacoes) {
-    const quantidadePorNota = new Map();
+    // Retorna 0 se o array for vazio ou indefinido
+    if (!avaliacoes || avaliacoes.length === 0) {
+        return 0;
+    }
 
-    avaliacoes.forEach(avaliacao => {
-        const quantidade = quantidadePorNota.get(avaliacao.stars) || 0;
-        quantidadePorNota.set(avaliacao.stars, quantidade + 1);
-    });
+    const notas = avaliacoes.map(avaliacao => avaliacao.stars);
 
-    const totalAvaliacoes = [...quantidadePorNota.values()]
-        .reduce((total, quantidade) => total + quantidade, 0);
-    const somaNotas = [...quantidadePorNota.entries()]
-        .reduce((soma, [nota, quantidade]) => soma + nota * quantidade, 0);
+    const somaNotas = notas.reduce((soma, nota) => soma + nota, 0);
 
-    return totalAvaliacoes ? somaNotas / totalAvaliacoes : 0;
+    return somaNotas / notas.length;
 }
+
 
 function atualizarRatingGeral() {
     const media = calcularMediaAvaliacoes(viewModel.avaliacoes);
     const estrelasPreenchidas = Math.round(media);
 
-    restaurantRating.querySelectorAll("img").forEach(star => star.remove());
+    restaurantRating.querySelectorAll(".ratingStarIcon").forEach(star => star.remove());
     if (media === 0) {
         ratingAverage.textContent = "Sem avaliações";
         restaurantRating.setAttribute("aria-label", "Sem avaliações");
@@ -60,7 +74,7 @@ function atualizarRatingGeral() {
 
     restaurantRating.insertAdjacentHTML("afterbegin", Array.from(
         { length: estrelasPreenchidas },
-        () => '<img src="Assets/star.png" alt="Estrela de avaliação">'
+        () => '<span class="ratingStarIcon" role="img" aria-label="Estrela de avaliação"></span>'
     ).join(""));
     ratingAverage.textContent = `${media.toFixed(1).replace(".", ",")}/5`;
     restaurantRating.setAttribute("aria-label", `Média de ${media.toFixed(1)} de 5`);
@@ -70,7 +84,7 @@ function criarCardAvaliacao(avaliacao) {
     const article = document.createElement("article");
 
     article.innerHTML = `
-        <img class="headerImages" src="Assets/person.crop.circle.png" alt="Imagem de perfil">
+        <span class="profileImageIcon" role="img" aria-label="Imagem de perfil"></span>
         <div class="restaurantRatingCard">
             ${criarEstrelas(avaliacao.stars, "")}
         </div>

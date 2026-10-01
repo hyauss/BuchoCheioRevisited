@@ -9,7 +9,7 @@ class CustomHeader extends HTMLElement {
         this.innerHTML = `
         <header>
             <button onclick="window.location.href='../home/home.html'" aria-label="Ir para Home">
-                <img class="headerImages" src="../../DesingSystem/Assets/fork.knife.circle.png" alt="Imagem contendo um garfo e uma faca.">
+                <span class="brandImage" role="img" aria-label="Imagem contendo um garfo e uma faca."></span>
             </button>
             <button class="text headerText ${active === 'home' ? 'active' : ''}" aria-label="Home" onclick="window.location.href='../home/home.html'">Home</button>
             <button class="text headerText mobileOption ${active === 'restaurantes' ? 'active' : ''}" aria-label="Resturantes" onclick="window.location.href='../restaurantes/restaurantes.html'">Resturantes</button>
@@ -17,7 +17,7 @@ class CustomHeader extends HTMLElement {
             <button class="text headerText ${active === 'relatorios' ? 'active' : ''}" aria-label="Relatórios">Relatórios</button>
             <button class="text headerText ${active === 'meus-restaurantes' ? 'active' : ''}" aria-label="Meus restaurantes">Meus restaurantes</button>
             <button class="profileImage" aria-label="Perfil">
-                <img class="headerImages" src="../../DesingSystem/Assets/person.crop.circle.png" alt="Imagem de perfil">
+                <span class="profileImageIcon" role="img" aria-label="Imagem de perfil"></span>
             </button>
         </header>
         `;
