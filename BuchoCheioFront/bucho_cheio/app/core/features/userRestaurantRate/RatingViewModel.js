@@ -12,6 +12,19 @@ export class RatingViewModel {
         this.erro = null;
     }
 
+    calcularMediaAvaliacoes() {
+        if (!this.avaliacoes.length) {
+            return 0;
+        }
+
+        const somaNotas = this.avaliacoes.reduce(
+            (soma, avaliacao) => soma + Number(avaliacao.stars),
+            0
+        );
+
+        return somaNotas / this.avaliacoes.length;
+    }
+
     async selecionarRestaurante(id) {
         this.carregando = true;
         this.erro = null;

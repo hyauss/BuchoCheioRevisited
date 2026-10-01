@@ -21,6 +21,8 @@ const restaurantImages = document.querySelector("#restaurantImages");
 
 let notaSelecionada = 5;
 
+// Helpers
+
 function obterImagem(media, fallback) {
     return media && !media.endsWith("exampleLogo.png") ? media : fallback;
 }
@@ -31,38 +33,10 @@ function criarEstrelas(quantidade, classe) {
     ).join("");
 }
 
-// function calcularMediaAvaliacoes(avaliacoes) {
-//     const quantidadePorNota = new Map();
-
-//     avaliacoes.forEach(avaliacao => {
-//         const quantidade = quantidadePorNota.get(avaliacao.stars) || 0;
-//         quantidadePorNota.set(avaliacao.stars, quantidade + 1);
-//     });
-
-//     const totalAvaliacoes = [...quantidadePorNota.values()]
-//         .reduce((total, quantidade) => total + quantidade, 0);
-//     const somaNotas = [...quantidadePorNota.entries()]
-//         .reduce((soma, [nota, quantidade]) => soma + nota * quantidade, 0);
-
-//     return totalAvaliacoes ? somaNotas / totalAvaliacoes : 0;
-// }
-
-function calcularMediaAvaliacoes(avaliacoes) {
-    // Retorna 0 se o array for vazio ou indefinido
-    if (!avaliacoes || avaliacoes.length === 0) {
-        return 0;
-    }
-
-    const notas = avaliacoes.map(avaliacao => avaliacao.stars);
-
-    const somaNotas = notas.reduce((soma, nota) => soma + nota, 0);
-
-    return somaNotas / notas.length;
-}
-
+// Renderização
 
 function atualizarRatingGeral() {
-    const media = calcularMediaAvaliacoes(viewModel.avaliacoes);
+    const media = viewModel.calcularMediaAvaliacoes();
     const estrelasPreenchidas = Math.round(media);
 
     restaurantRating.querySelectorAll(".ratingStarIcon").forEach(star => star.remove());
@@ -94,6 +68,34 @@ function criarCardAvaliacao(avaliacao) {
 
     return article;
 }
+
+function renderRestaurantImages(imagens) {
+    restaurantImages.innerHTML = "";
+
+    imagens.forEach(imagem => {
+        const image = document.createElement("img");
+        image.src = imagem;
+        image.alt = "Foto do restaurante";
+        restaurantImages.appendChild(image);
+    });
+}
+
+function renderRating(restaurante) {
+    restaurantName.textContent = restaurante.name;
+    restaurantInfoName.textContent = restaurante.name;
+    restaurantInfoCnpj.textContent = `CNPJ: ${restaurante.CNPJ}`;
+    restaurantInfoAddress.textContent = `Endereço: ${restaurante.address}`;
+    restaurantImage.src = obterImagem(restaurante.medias[0], "Assets/tiozao.png");
+    renderRestaurantImages(restaurante.restImages ?? []);
+    backLink.href = `../userMenu/menu.html?id=${restaurante.id}`;
+    atualizarRatingGeral();
+
+    viewModel.avaliacoes.forEach(avaliacao => {
+        restaurantRatings.appendChild(criarCardAvaliacao(avaliacao));
+    });
+}
+
+// Interação com a avaliação
 
 function atualizarEstrelas() {
     ratingStars.forEach(star => {
@@ -130,34 +132,24 @@ function adicionarAvaliacao(event) {
     ratingDialog.close();
 }
 
-function renderRating(restaurante) {
-    restaurantName.textContent = restaurante.name;
-    restaurantInfoName.textContent = restaurante.name;
-    restaurantInfoCnpj.textContent = `CNPJ: ${restaurante.CNPJ}`;
-    restaurantInfoAddress.textContent = `Endereço: ${restaurante.address}`;
-    restaurantImage.src = obterImagem(restaurante.medias[0], "Assets/tiozao.png");
-    renderRestaurantImages(restaurante.restImages ?? []);
-    backLink.href = `../userMenu/menu.html?id=${restaurante.id}`;
-    atualizarRatingGeral();
+// Eventos da interface
 
-    viewModel.avaliacoes.forEach(avaliacao => {
-        restaurantRatings.appendChild(criarCardAvaliacao(avaliacao));
-    });
-}
-
-openRatingDialog.addEventListener("click", () => {
+function abrirDialogoAvaliacao() {
     atualizarEstrelas();
     ratingDialog.showModal();
-});
+}
 
-ratingStars.forEach(star => {
-    star.addEventListener("click", () => {
-        notaSelecionada = Number(star.dataset.rating);
-        atualizarEstrelas();
-    });
-});
+function selecionarEstrela(event) {
+    notaSelecionada = Number(event.currentTarget.dataset.rating);
+    atualizarEstrelas();
+}
+
+openRatingDialog.addEventListener("click", abrirDialogoAvaliacao);
+ratingStars.forEach(star => star.addEventListener("click", selecionarEstrela));
 
 ratingForm.addEventListener("submit", adicionarAvaliacao);
+
+// Inicialização
 
 async function inicializar() {
     await viewModel.selecionarRestaurante(restauranteId);
@@ -165,17 +157,6 @@ async function inicializar() {
     if (viewModel.restauranteSelecionado) {
         renderRating(viewModel.restauranteSelecionado);
     }
-}
-
-function renderRestaurantImages(imagens) {
-    restaurantImages.innerHTML = "";
-
-    imagens.forEach(imagem => {
-        const image = document.createElement("img");
-        image.src = imagem;
-        image.alt = "Foto do restaurante";
-        restaurantImages.appendChild(image);
-    });
 }
 
 inicializar();
