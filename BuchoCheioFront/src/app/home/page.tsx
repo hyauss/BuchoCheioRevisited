@@ -14,9 +14,9 @@ export default function Home() {
         <p className="text pText">Esse sistema permite que usuários consultem, avaliem e obtenham relatórios sobre os restaurantes e que os restaurantes cadastrem e atualizem seus cardapios</p>
       </section>
       <section className="navigationSection">
-        <NavCard href="/restaurantes" imageSrc="/assets/consultarRestaurantes.svg" alt="Garfo e faca" label="Consultar restaurantes" />
-        <NavCard href="/cadastrar" imageSrc="/assets/cadastrarRestaurantes.svg" alt="Mais" label="Cadastrar Restaurantes" />
-        <NavCard href="/relatorios" imageSrc="/assets/obterRelatorio.svg" alt="Mapa" label="Obter Relatórios" />
+        <NavCard href="/restaurantes" imageSrc="designSystem/assets/consultarRestaurantes.svg" alt="Garfo e faca" label="Consultar restaurantes" />
+        <NavCard href="/cadastrar" imageSrc="designSystem/assets/cadastrarRestaurantes.svg" alt="Mais" label="Cadastrar Restaurantes" />
+        <NavCard href="/relatorios" imageSrc="designSystem/assets/obterRelatorio.svg" alt="Mapa" label="Obter Relatórios" />
       </section>
     </main>
   );
