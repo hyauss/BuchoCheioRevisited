@@ -15,7 +15,7 @@ export default async function RestaurantsPage() {
 
     return (
         <div className="flex flex-col min-h-screen bg-brand-bg text-brand-text">
-            <Header active="restaurantes" />
+            <Header active="restaurants" />
             <main className="flex flex-col flex-1 w-full max-w-7xl mx-auto px-4 md:px-[75px]">
                 <section className="flex flex-col items-start w-full">
                     <h1 className="text-3xl md:text-[48px] font-bold py-[23px] leading-tight">
