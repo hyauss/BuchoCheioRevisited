@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export type HeaderActiveTab =
     | "home"
-    | "restaurantes"
+    | "restaurants"
     | "cadastrar"
     | "relatorios"
     | "meus-restaurantes";
@@ -53,7 +53,7 @@ export function Header({ active }: HeaderProps) {
             <Link
                 href="/restaurants"
                 aria-label="Restaurantes"
-                className={getLinkClasses("restaurantes", "hidden md:block")}
+                className={getLinkClasses("restaurants", "hidden md:block")}
             >
                 Resturantes
             </Link>
