@@ -15,9 +15,7 @@ export function Header({ active }: HeaderProps) {
     const getLinkClasses = (tabName: HeaderActiveTab, extraClasses = "") => {
         const isActive = active === tabName;
         return `text-[clamp(13px,1.2vw,16px)] text-brand-text bg-transparent transition-transform duration-200 hover:scale-105 active:scale-100 pb-0.5 ${
-            isActive
-                ? "border-b-2 border-brand-button"
-                : "border-b-2 border-transparent"
+            isActive ? "border-b-2 border-brand-button" : "border-b-2 border-transparent"
         } ${extraClasses}`.trim();
     };
 
