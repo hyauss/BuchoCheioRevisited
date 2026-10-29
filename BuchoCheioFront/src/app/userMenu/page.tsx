@@ -2,11 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { Footer } from "../home/components/Footer";
 import { Header } from "../home/components/Header";
+import { getRestaurantById } from "../restaurants/services/restaurantService";
+import { RestaurantRating } from "./components/RestaurantRating";
 
-function DishCard({ title, description, price, highlight = false,}: {
+function DishCard({ title, description, price, image, highlight = false,}: {
     title: string;
     description: string;
     price: string;
+    image: string;
     highlight?: boolean;
 }) {
     return (
@@ -18,7 +21,7 @@ function DishCard({ title, description, price, highlight = false,}: {
             }`}
         >
             <Image
-                src="/designSystem/assets/images-2.jpeg"
+                src={image}
                 alt={title}
                 width={600}
                 height={400}
@@ -43,31 +46,26 @@ function DishCard({ title, description, price, highlight = false,}: {
     );
 }
 
-export default function UserMenu() {
-    const restaurantName = "Doceria da Gigica";
-    const rating = 4;
-    const dishes = [
-        {
-            title: "Copo de morango com brownie",
-            description: "Um delicioso copo com morango e brownie",
-            price: "R$ 30,00",
-        },
-        {
-            title: "Copo de banana com brownie",
-            description: "Um delicioso copo com banana e brownie",
-            price: "R$ 30,00",
-        },
-        {
-            title: "Copo de açaí com brownie",
-            description: "Um delicioso copo com açaí e brownie",
-            price: "R$ 30,00",
-        },
-        {
-            title: "Copo de kiwi com brownie",
-            description: "Um delicioso copo com kiwi e brownie",
-            price: "R$ 30,00",
-        },
-    ];
+export default async function UserMenu({
+    searchParams,
+}: {
+    searchParams: Promise<{ id?: string }>;
+}) {
+    const { id } = await searchParams;
+    const restaurantId = Number(id) || 1;
+    const restaurant = (await getRestaurantById(restaurantId)) ?? (await getRestaurantById(1));
+    if (!restaurant) {
+        return null;
+    }
+    const rating =
+        restaurant.ratings.reduce((total, currentRating) => total + currentRating.stars, 0) /
+        restaurant.ratings.length;
+    const dishes = restaurant.dishes.map((dish) => ({
+        title: dish.title,
+        description: dish.desc,
+        price: `R$ ${dish.price.toFixed(2).replace(".", ",")}`,
+        image: dish.media[0] ?? "/designSystem/assets/images-2.jpeg",
+    }));
 
     return (
         <div className="flex min-h-screen flex-col bg-brand-bg text-brand-text">
@@ -86,36 +84,19 @@ export default function UserMenu() {
                             }}
                         />
                         <h1 className="pl-2 text-[clamp(24px,5vw,48px)] font-normal">
-                            {restaurantName}
+                            {restaurant.name}
                         </h1>
                         <Link
-                            href="/userRestaurantRate"
+                            href={`/userRestaurantRate?id=${restaurantId}`}
                             className="ml-auto mr-0 rounded-lg bg-brand-button px-4 py-2 text-center text-sm text-white transition-transform hover:scale-105 sm:mr-[8vw] sm:w-[160px]"
                         >
                             Avaliar
                         </Link>
                     </div>
-                    <div
-                        className="ml-0 flex items-center gap-1 sm:ml-[4vw]"
-                        aria-label={`Avaliação: ${rating} de 5`}
-                    >
-                        {Array.from({ length: 5 }, (_, index) => (
-                            <span
-                                key={index}
-                                aria-hidden="true"
-                                className={`h-8 w-8 ${
-                                    index < rating
-                                        ? "bg-brand-accent"
-                                        : "bg-brand-text/20"
-                                }`}
-                                style={{
-                                    mask: "url('/designSystem/assets/star.svg') center / contain no-repeat",
-                                    WebkitMask:
-                                        "url('/designSystem/assets/star.svg') center / contain no-repeat",
-                                }}
-                            />
-                        ))}
-                    </div>
+                    <RestaurantRating
+                        restaurantId={restaurantId}
+                        initialRating={rating}
+                    />
                 </section>
 
                 <section className="flex w-full flex-col gap-3 px-4 pt-7 sm:px-[5vw]">

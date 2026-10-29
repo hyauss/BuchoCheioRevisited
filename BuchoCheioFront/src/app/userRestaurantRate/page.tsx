@@ -2,29 +2,60 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { FormEvent, useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { FormEvent, Suspense, useEffect, useState } from "react";
 import { Footer } from "../home/components/Footer";
 import { Header } from "../home/components/Header";
 import restaurantImage from "../core-Legado/features/userRestaurantRate/Assets/restImage.png";
+import {
+    getAverageRating,
+    getStoredRatings,
+    saveRatings,
+} from "../restaurants/services/ratingStorage";
+import { MOCK_RESTAURANTES } from "../restaurants/services/restaurantService";
 
-export default function UserRestaurantRate() {
+function UserRestaurantRateContent({
+    restaurantId,
+}: {
+    restaurantId: number;
+}) {
+    const restaurant =
+        MOCK_RESTAURANTES.find((item) => item.id === restaurantId) ??
+        MOCK_RESTAURANTES[0];
     const [ratings, setRatings] = useState([
-        { stars: 5, description: "Muito bom!!" },
-        { stars: 3, description: "Poderia ser melhor..." },
-        {
-            stars: 4,
-            description:
-                "Muito bom! Uma pena terem esquecido a minha bebida",
-        },
+        ...restaurant.ratings.map((rating) => ({
+            stars: rating.stars,
+            description: rating.desc,
+        })),
     ]);
     const [selectedStars, setSelectedStars] = useState(5);
     const [comment, setComment] = useState("");
     const [isDialogOpen, setIsDialogOpen] = useState(false);
 
-    const restaurantName = "Doceria da Gigica";
-    const restaurantRating =
-        ratings.reduce((total, rating) => total + rating.stars, 0) /
-        ratings.length;
+    const restaurantRating = getAverageRating(
+        ratings.map((rating) => ({
+            stars: rating.stars,
+            desc: rating.description,
+        })),
+    );
+
+    useEffect(() => {
+        const storedRatings = getStoredRatings(restaurantId);
+        if (!storedRatings) {
+            return;
+        }
+
+        const timeoutId = window.setTimeout(() => {
+            setRatings(
+                storedRatings.map((rating) => ({
+                    stars: rating.stars,
+                    description: rating.desc,
+                })),
+            );
+        });
+
+        return () => window.clearTimeout(timeoutId);
+    }, [restaurantId]);
 
     function submitRating(event: FormEvent<HTMLFormElement>) {
         event.preventDefault();
@@ -34,10 +65,18 @@ export default function UserRestaurantRate() {
             return;
         }
 
-        setRatings((currentRatings) => [
+        const updatedRatings = [
             { stars: selectedStars, description: trimmedComment },
-            ...currentRatings,
-        ]);
+            ...ratings,
+        ];
+        setRatings(updatedRatings);
+        saveRatings(
+            restaurantId,
+            updatedRatings.map((rating) => ({
+                stars: rating.stars,
+                desc: rating.description,
+            })),
+        );
         setComment("");
         setSelectedStars(5);
         setIsDialogOpen(false);
@@ -50,7 +89,7 @@ export default function UserRestaurantRate() {
                 <section className="flex flex-1 flex-col items-start gap-3 px-4 pt-7 sm:px-[5vw] min-[951px]:px-[5vw]">
                     <div className="flex items-center">
                         <Link
-                            href="/userMenu"
+                            href={`/userMenu?id=${restaurantId}`}
                             aria-label="Voltar para o cardápio"
                             className="flex h-[clamp(24px,5vw,48px)] w-[clamp(24px,5vw,48px)] shrink-0 bg-brand-accent transition-transform hover:scale-105"
                             style={{
@@ -60,7 +99,7 @@ export default function UserRestaurantRate() {
                             }}
                         />
                         <h1 className="pl-2 text-[clamp(24px,5vw,48px)] font-normal">
-                            {restaurantName}
+                            {restaurant.name}
                         </h1>
                     </div>
 
@@ -137,13 +176,16 @@ export default function UserRestaurantRate() {
                 <section className="mx-4 mt-8 flex h-[500px] min-h-0 min-w-0 flex-none flex-col overflow-hidden rounded-lg bg-white shadow-[0_4px_12px_rgba(0,0,0,0.05)] sm:mx-[5vw] min-[951px]:mx-[5vw] min-[951px]:mt-[8vw]">
                     <Image
                         src="/designSystem/assets/images-2.jpeg"
-                        alt="Foto do restaurante"
+                        alt={`Foto do restaurante ${restaurant.name}`}
                         width={800}
                         height={500}
                         className="h-[260px] w-full shrink-0 object-cover"
                     />
                     <div className="flex gap-3 overflow-x-auto p-4">
-                        {[restaurantImage, restaurantImage, restaurantImage].map(
+                        {(restaurant.restImages.length > 0
+                            ? restaurant.restImages
+                            : [restaurantImage]
+                        ).map(
                             (image, index) => (
                                 <Image
                                     key={index}
@@ -157,9 +199,9 @@ export default function UserRestaurantRate() {
                         )}
                     </div>
                     <footer className="mt-auto flex flex-wrap justify-between gap-2 p-4 text-sm font-medium">
-                        <p>{restaurantName}</p>
-                        <p>CNPJ: 19.344.912/0001-09</p>
-                        <p>Endereço: Avenida 25, 399, Apto 74</p>
+                        <p>{restaurant.name}</p>
+                        <p>CNPJ: {restaurant.CNPJ}</p>
+                        <p>Endereço: {restaurant.address}</p>
                     </footer>
                 </section>
             </main>
@@ -232,5 +274,20 @@ export default function UserRestaurantRate() {
             )}
             <Footer />
         </div>
+    );
+}
+
+function UserRestaurantRateWithParams() {
+    const searchParams = useSearchParams();
+    const restaurantId = Number(searchParams.get("id")) || 1;
+
+    return <UserRestaurantRateContent key={restaurantId} restaurantId={restaurantId} />;
+}
+
+export default function UserRestaurantRate() {
+    return (
+        <Suspense fallback={null}>
+            <UserRestaurantRateWithParams />
+        </Suspense>
     );
 }
