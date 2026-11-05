@@ -2,24 +2,24 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
-import { FormEvent, Suspense, useEffect, useState } from "react";
-import restaurantImage from "../core-Legado/features/userRestaurantRate/Assets/restImage.png";
+import { useParams } from "next/navigation";
+import { FormEvent, useEffect, useState } from "react";
+import restaurantImage from "../../../core-Legado/features/userRestaurantRate/Assets/restImage.png";
 import {
     getAverageRating,
     getStoredRatings,
     saveRatings,
-} from "../restaurants/services/ratingStorage";
-import { MOCK_RESTAURANTES } from "../restaurants/services/restaurantService";
+} from "../../services/ratingStorage";
+import { MOCK_RESTAURANTES } from "../../services/restaurantService";
 
-function UserRestaurantRateContent({
-    restaurantId,
-}: {
-    restaurantId: number;
-}) {
+export default function RestaurantRatePage() {
+    const params = useParams();
+    const restaurantId = Number(params?.id) || 1;
+
     const restaurant =
         MOCK_RESTAURANTES.find((item) => item.id === restaurantId) ??
         MOCK_RESTAURANTES[0];
+
     const [ratings, setRatings] = useState([
         ...restaurant.ratings.map((rating) => ({
             stars: rating.stars,
@@ -86,7 +86,7 @@ function UserRestaurantRateContent({
                 <section className="flex flex-1 flex-col items-start gap-3 px-4 pt-7 sm:px-[5vw] min-[951px]:px-[5vw]">
                     <div className="flex items-center">
                         <Link
-                            href={`/userMenu?id=${restaurantId}`}
+                            href={`/restaurants/${restaurantId}`}
                             aria-label="Voltar para o cardápio"
                             className="flex h-[clamp(24px,5vw,48px)] w-[clamp(24px,5vw,48px)] shrink-0 bg-brand-accent transition-transform hover:scale-105"
                             style={{
@@ -270,20 +270,5 @@ function UserRestaurantRateContent({
                 </div>
             )}
         </div>
-    );
-}
-
-function UserRestaurantRateWithParams() {
-    const searchParams = useSearchParams();
-    const restaurantId = Number(searchParams.get("id")) || 1;
-
-    return <UserRestaurantRateContent key={restaurantId} restaurantId={restaurantId} />;
-}
-
-export default function UserRestaurantRate() {
-    return (
-        <Suspense fallback={null}>
-            <UserRestaurantRateWithParams />
-        </Suspense>
     );
 }

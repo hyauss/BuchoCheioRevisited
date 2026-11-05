@@ -5,7 +5,7 @@ import {
     getAverageRating,
     getStoredRatings,
     RATING_UPDATED_EVENT,
-} from "../../restaurants/services/ratingStorage";
+} from "../services/ratingStorage";
 
 interface RestaurantRatingProps {
     restaurantId: number;
