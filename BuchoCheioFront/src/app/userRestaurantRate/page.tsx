@@ -4,8 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { FormEvent, Suspense, useEffect, useState } from "react";
-import { Footer } from "../home/components/Footer";
-import { Header } from "../home/components/Header";
 import restaurantImage from "../core-Legado/features/userRestaurantRate/Assets/restImage.png";
 import {
     getAverageRating,
@@ -84,7 +82,6 @@ function UserRestaurantRateContent({
 
     return (
         <div className="flex min-h-screen flex-col bg-brand-bg text-brand-text">
-            <Header active="restaurantes" />
             <main className="flex flex-1 flex-col justify-between pb-16 min-[951px]:flex-row">
                 <section className="flex flex-1 flex-col items-start gap-3 px-4 pt-7 sm:px-[5vw] min-[951px]:px-[5vw]">
                     <div className="flex items-center">
@@ -272,7 +269,6 @@ function UserRestaurantRateContent({
                     </form>
                 </div>
             )}
-            <Footer />
         </div>
     );
 }

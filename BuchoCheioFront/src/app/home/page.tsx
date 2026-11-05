@@ -1,6 +1,4 @@
 import type { Metadata } from "next";
-import { Footer } from "./components/Footer";
-import { Header } from "./components/Header";
 import { NavCard } from "./components/NavCard";
 
 export const metadata: Metadata = {
@@ -11,7 +9,6 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-brand-bg text-brand-text">
-      <Header active="home" />
       <main className="flex flex-col items-center justify-center flex-1 px-4">
         <section className="flex flex-col items-start w-full max-w-[85vw] md:max-w-[60vw] pt-[10vh] md:pt-[12vh] pb-[5vh] md:pb-[7vh]">
           <h1 className="text-[9.5vw] md:text-[4.5vw] pb-[1.2vh] md:pb-[1vh] font-bold">Bucho Cheio</h1>
@@ -25,7 +22,6 @@ export default function Home() {
           <NavCard href="" imageSrc="designSystem/assets/obterRelatorio.svg" alt="Mapa" label="Obter Relatórios" />
         </section>
       </main>
-      <Footer></Footer>
     </div>
   );
 }
