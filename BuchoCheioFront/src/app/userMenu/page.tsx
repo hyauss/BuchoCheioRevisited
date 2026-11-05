@@ -1,7 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Footer } from "../home/components/Footer";
-import { Header } from "../home/components/Header";
 import { getRestaurantById } from "../restaurants/services/restaurantService";
 import { RestaurantRating } from "./components/RestaurantRating";
 
@@ -69,7 +67,6 @@ export default async function UserMenu({
 
     return (
         <div className="flex min-h-screen flex-col bg-brand-bg text-brand-text">
-            <Header active="restaurantes" />
             <main className="flex w-full flex-1 flex-col">
                 <section className="flex flex-col items-start gap-3 px-4 pt-7 sm:px-[5vw]">
                     <div className="flex w-full items-center">
@@ -125,7 +122,6 @@ export default async function UserMenu({
                     </div>
                 </section>
             </main>
-            <Footer />
         </div>
     );
 }

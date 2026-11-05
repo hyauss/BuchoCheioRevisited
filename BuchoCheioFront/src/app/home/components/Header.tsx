@@ -1,4 +1,6 @@
+"use client"
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export type HeaderActiveTab =
     | "home"
@@ -7,21 +9,24 @@ export type HeaderActiveTab =
     | "relatorios"
     | "meus-restaurantes";
 
-interface HeaderProps {
-    active?: HeaderActiveTab | string;
-}
+export function Header() {
+    const pathname = usePathname();
 
-export function Header({ active }: HeaderProps) {
     const getLinkClasses = (tabName: HeaderActiveTab, extraClasses = "") => {
-        const isActive = active === tabName;
+        const isActive =
+            tabName === "home"
+                ? pathname === "/home" || pathname === "/"
+                : pathname === `/${tabName}` || pathname.startsWith(`/${tabName}/`);
+
         return `text-[clamp(13px,1.2vw,16px)] text-brand-text bg-transparent transition-transform duration-200 hover:scale-105 active:scale-100 pb-0.5 ${
             isActive ? "border-b-2 border-brand-button" : "border-b-2 border-transparent"
         } ${extraClasses}`.trim();
     };
-
     return (
+        <div className="bg-brand-bg text-brand-text">
         <header className="flex flex-row items-center w-full box-border gap-[clamp(8px,1.2vw,16px)] pt-[clamp(12px,2vh,20px)] px-[clamp(16px,2.5vw,32px)]">
             {/* Brand / Logo */}
+            
             <Link
                 href="/home"
                 aria-label="Ir para Home"
@@ -38,7 +43,7 @@ export function Header({ active }: HeaderProps) {
                     }}
                 />
             </Link>
-
+            
             {/* Navegação */}
             <Link
                 href="/home"
@@ -53,7 +58,7 @@ export function Header({ active }: HeaderProps) {
                 aria-label="Restaurantes"
                 className={getLinkClasses("restaurants", "hidden md:block")}
             >
-                Resturantes
+                Restaurantes
             </Link>
 
             <button
@@ -98,6 +103,7 @@ export function Header({ active }: HeaderProps) {
                 />
             </button>
         </header>
+        </div>
     );
 }
 
