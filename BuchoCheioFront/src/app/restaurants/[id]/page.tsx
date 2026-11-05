@@ -1,9 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
-import { getRestaurantById } from "../restaurants/services/restaurantService";
-import { RestaurantRating } from "./components/RestaurantRating";
+import { RestaurantRating } from "../components/RestaurantRating";
+import { getRestaurantById } from "../services/restaurantService";
 
-function DishCard({ title, description, price, image, highlight = false,}: {
+function DishCard({
+    title,
+    description,
+    price,
+    image,
+    highlight = false,
+}: {
     title: string;
     description: string;
     price: string;
@@ -23,7 +29,11 @@ function DishCard({ title, description, price, image, highlight = false,}: {
                 alt={title}
                 width={600}
                 height={400}
-                className={highlight ? "h-[140px] w-full shrink-0 object-cover" : "absolute right-0 top-0 h-full w-[35%] rounded-r-lg object-cover" }
+                className={
+                    highlight
+                        ? "h-[140px] w-full shrink-0 object-cover"
+                        : "absolute right-0 top-0 h-full w-[35%] rounded-r-lg object-cover"
+                }
             />
             <div
                 className={
@@ -44,20 +54,24 @@ function DishCard({ title, description, price, image, highlight = false,}: {
     );
 }
 
-export default async function UserMenu({
-    searchParams,
+export default async function RestaurantMenuPage({
+    params,
 }: {
-    searchParams: Promise<{ id?: string }>;
+    params: Promise<{ id: string }>;
 }) {
-    const { id } = await searchParams;
+    const { id } = await params;
     const restaurantId = Number(id) || 1;
-    const restaurant = (await getRestaurantById(restaurantId)) ?? (await getRestaurantById(1));
+    const restaurant =
+        (await getRestaurantById(restaurantId)) ?? (await getRestaurantById(1));
+
     if (!restaurant) {
         return null;
     }
+
     const rating =
         restaurant.ratings.reduce((total, currentRating) => total + currentRating.stars, 0) /
         restaurant.ratings.length;
+
     const dishes = restaurant.dishes.map((dish) => ({
         title: dish.title,
         description: dish.desc,
@@ -84,7 +98,7 @@ export default async function UserMenu({
                             {restaurant.name}
                         </h1>
                         <Link
-                            href={`/userRestaurantRate?id=${restaurantId}`}
+                            href={`/restaurants/${restaurantId}/rate`}
                             className="ml-auto mr-0 rounded-lg bg-brand-button px-4 py-2 text-center text-sm text-white transition-transform hover:scale-105 sm:mr-[8vw] sm:w-[160px]"
                         >
                             Avaliar

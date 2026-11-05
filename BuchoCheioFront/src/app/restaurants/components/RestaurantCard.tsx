@@ -79,7 +79,7 @@ export function RestaurantCard({ restaurant }: RestaurantCardProps) {
                     </span>
                 </div>
                 <Link
-                    href={`/userMenu?id=${restaurant.id}`}
+                    href={`/restaurants/${restaurant.id}`}
                     className="mt-auto w-full h-[37px] flex items-center justify-center bg-brand-button text-white text-base font-normal rounded-lg transition-transform duration-200 hover:scale-105 active:scale-100"
                 >
                     Ver restaurante
