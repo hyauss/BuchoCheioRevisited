@@ -1,0 +1,332 @@
+{
+  "ratings": [
+    {
+      "id": 1,
+      "restaurantId": 1,
+      "stars": 5,
+      "desc": "Muito bom!!"
+    },
+    {
+      "id": 2,
+      "restaurantId": 2,
+      "stars": 5,
+      "desc": "Muito bom!!"
+    },
+    {
+      "id": 3,
+      "restaurantId": 2,
+      "stars": 3,
+      "desc": "Poderia ser melhor..."
+    },
+    {
+      "id": 4,
+      "restaurantId": 2,
+      "stars": 4,
+      "desc": "Muito bom! Uma pena terem esquecido a minha bebida"
+    },
+    {
+      "id": 5,
+      "restaurantId": 2,
+      "stars": 1,
+      "desc": "Show, amei"
+    },
+    {
+      "id": 6,
+      "restaurantId": 3,
+      "stars": 3,
+      "desc": "Poderia ser melhor..."
+    },
+    {
+      "id": 7,
+      "restaurantId": 3,
+      "stars": 4,
+      "desc": "Muito bom! Uma pena terem esquecido a minha bebida"
+    },
+    {
+      "id": 8,
+      "restaurantId": 3,
+      "stars": 1,
+      "desc": "Show, amei"
+    },
+    {
+      "id": 9,
+      "restaurantId": 4,
+      "stars": 5,
+      "desc": "Muito bom!!"
+    },
+    {
+      "id": 10,
+      "restaurantId": 4,
+      "stars": 4,
+      "desc": "Muito bom! Uma pena terem esquecido a minha bebida"
+    },
+    {
+      "id": 11,
+      "restaurantId": 5,
+      "stars": 5,
+      "desc": "Muito bom!!"
+    },
+    {
+      "id": 12,
+      "restaurantId": 5,
+      "stars": 3,
+      "desc": "Poderia ser melhor..."
+    },
+    {
+      "id": 13,
+      "restaurantId": 5,
+      "stars": 4,
+      "desc": "Muito bom! Uma pena terem esquecido a minha bebida"
+    },
+    {
+      "id": 14,
+      "restaurantId": 5,
+      "stars": 1,
+      "desc": "Show, amei"
+    },
+    {
+      "restaurantId": 1,
+      "stars": 1,
+      "desc": "ihjohj",
+      "id": 15
+    },
+    {
+      "restaurantId": 1,
+      "stars": 1,
+      "desc": "asdjasodiasjoid",
+      "id": 16
+    },
+    {
+      "restaurantId": 1,
+      "stars": 5,
+      "desc": "asdjiasduij\\",
+      "id": 17
+    },
+    {
+      "restaurantId": 1,
+      "stars": 5,
+      "desc": "AQUIII",
+      "id": 18
+    }
+  ],
+  "restaurants": [
+    {
+      "id": 1,
+      "name": "Doceria da Gigica",
+      "address": "Avenida 25, 399, Apto 74",
+      "CNPJ": "19.344.912/0001-09",
+      "medias": [
+        "/designSystem/assets/exampleLogo.png"
+      ],
+      "restImages": [
+        "/designSystem/assets/restImage.png",
+        "/designSystem/assets/restImage.png",
+        "/designSystem/assets/restImage.png"
+      ],
+      "dishes": [
+        {
+          "title": "Copo de morango com brownie",
+          "desc": "Um delicioso copo com morango e brownie",
+          "media": [
+            "/designSystem/assets/exampleLogo.png"
+          ],
+          "price": 30
+        }
+      ],
+      "ratings": [
+        {
+          "stars": 5,
+          "desc": "Muito bom!!"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Doceria da Gigica",
+      "address": "Avenida 25, 399, Apto 74",
+      "CNPJ": "19.344.912/0001-09",
+      "medias": [
+        "/designSystem/assets/exampleLogo.png"
+      ],
+      "restImages": [
+        "/designSystem/assets/restImage.png",
+        "/designSystem/assets/restImage.png",
+        "/designSystem/assets/restImage.png"
+      ],
+      "dishes": [
+        {
+          "title": "Copo de morango com brownie",
+          "desc": "Um delicioso copo com morango e brownie",
+          "media": [
+            "/designSystem/assets/exampleLogo.png"
+          ],
+          "price": 30
+        }
+      ],
+      "ratings": [
+        {
+          "stars": 5,
+          "desc": "Muito bom!!"
+        },
+        {
+          "stars": 3,
+          "desc": "Poderia ser melhor..."
+        },
+        {
+          "stars": 4,
+          "desc": "Muito bom! Uma pena terem esquecido a minha bebida"
+        },
+        {
+          "stars": 1,
+          "desc": "Show, amei"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Doceria da Gigica",
+      "address": "Avenida 25, 399, Apto 74",
+      "CNPJ": "19.344.912/0001-09",
+      "medias": [
+        "/designSystem/assets/exampleLogo.png"
+      ],
+      "restImages": [
+        "/designSystem/assets/restImage.png",
+        "/designSystem/assets/restImage.png",
+        "/designSystem/assets/restImage.png"
+      ],
+      "dishes": [
+        {
+          "title": "Copo de morango com brownie",
+          "desc": "Um delicioso copo com morango e brownie",
+          "media": [
+            "/designSystem/assets/exampleLogo.png"
+          ],
+          "price": 30
+        }
+      ],
+      "ratings": [
+        {
+          "stars": 3,
+          "desc": "Poderia ser melhor..."
+        },
+        {
+          "stars": 4,
+          "desc": "Muito bom! Uma pena terem esquecido a minha bebida"
+        },
+        {
+          "stars": 1,
+          "desc": "Show, amei"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Doceria da Gigica",
+      "address": "Avenida 25, 399, Apto 74",
+      "CNPJ": "19.344.912/0001-09",
+      "medias": [
+        "/designSystem/assets/exampleLogo.png"
+      ],
+      "restImages": [
+        "/designSystem/assets/restImage.png",
+        "/designSystem/assets/restImage.png",
+        "/designSystem/assets/restImage.png"
+      ],
+      "dishes": [
+        {
+          "title": "Copo de morango com brownie",
+          "desc": "Um delicioso copo com morango e brownie",
+          "media": [
+            "/designSystem/assets/exampleLogo.png"
+          ],
+          "price": 30
+        }
+      ],
+      "ratings": [
+        {
+          "stars": 5,
+          "desc": "Muito bom!!"
+        },
+        {
+          "stars": 4,
+          "desc": "Muito bom! Uma pena terem esquecido a minha bebida"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Doceria da Gigica",
+      "address": "Avenida 25, 399, Apto 74",
+      "CNPJ": "19.344.912/0001-09",
+      "medias": [
+        "/designSystem/assets/exampleLogo.png"
+      ],
+      "restImages": [
+        "/designSystem/assets/restImage.png",
+        "/designSystem/assets/restImage.png",
+        "/designSystem/assets/restImage.png"
+      ],
+      "dishes": [
+        {
+          "title": "Copo de morango com brownie",
+          "desc": "Um delicioso copo com morango e brownie",
+          "media": [
+            "/designSystem/assets/exampleLogo.png"
+          ],
+          "price": 30
+        },
+        {
+          "title": "Copo de banana com brownie",
+          "desc": "Um delicioso copo com banana e brownie",
+          "media": [
+            "/designSystem/assets/exampleLogo.png"
+          ],
+          "price": 30
+        },
+        {
+          "title": "Copo de açaí com brownie",
+          "desc": "Um delicioso copo com açaí e brownie",
+          "media": [
+            "/designSystem/assets/exampleLogo.png"
+          ],
+          "price": 30
+        },
+        {
+          "title": "Copo de banana com brownie",
+          "desc": "Um delicioso copo com banana e brownie",
+          "media": [
+            "/designSystem/assets/exampleLogo.png"
+          ],
+          "price": 30
+        },
+        {
+          "title": "Copo de kiwi com brownie",
+          "desc": "Um delicioso copo com kiwi e brownie",
+          "media": [
+            "/designSystem/assets/exampleLogo.png"
+          ],
+          "price": 30
+        }
+      ],
+      "ratings": [
+        {
+          "stars": 5,
+          "desc": "Muito bom!!"
+        },
+        {
+          "stars": 3,
+          "desc": "Poderia ser melhor..."
+        },
+        {
+          "stars": 4,
+          "desc": "Muito bom! Uma pena terem esquecido a minha bebida"
+        },
+        {
+          "stars": 1,
+          "desc": "Show, amei"
+        }
+      ]
+    }
+  ]
+}

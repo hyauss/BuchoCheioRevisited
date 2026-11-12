@@ -25,20 +25,16 @@ export function RestaurantCard({ restaurant }: RestaurantCardProps) {
     const averageRating = getAverageRating(ratings);
 
     useEffect(() => {
-        const updateRatings = () => {
-            const storedRatings = getStoredRatings(restaurant.id);
-            if (storedRatings) {
-                setRatings(storedRatings);
-            }
+        const updateRatings = async () => {
+            const ratings = await getStoredRatings(restaurant.id);
+            setRatings(ratings);
         };
 
-        updateRatings();
+        void updateRatings();
         window.addEventListener(RATING_UPDATED_EVENT, updateRatings);
-        window.addEventListener("storage", updateRatings);
 
         return () => {
             window.removeEventListener(RATING_UPDATED_EVENT, updateRatings);
-            window.removeEventListener("storage", updateRatings);
         };
     }, [restaurant.id]);
 

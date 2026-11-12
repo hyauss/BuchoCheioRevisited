@@ -5,30 +5,38 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import { FormEvent, useEffect, useState } from "react";
 import restaurantImage from "../../../core-Legado/features/userRestaurantRate/Assets/restImage.png";
-import {
-    getAverageRating,
-    getStoredRatings,
-    saveRatings,
-} from "../../services/ratingStorage";
-import { MOCK_RESTAURANTES } from "../../services/restaurantService";
+import { getAverageRating, getStoredRatings, saveRating } from "../../services/ratingStorage";
+import { getRestaurantById } from "../../services/restaurantService";
 
 export default function RestaurantRatePage() {
     const params = useParams();
     const restaurantId = Number(params?.id) || 1;
 
-    const restaurant =
-        MOCK_RESTAURANTES.find((item) => item.id === restaurantId) ??
-        MOCK_RESTAURANTES[0];
+    const [restaurant, setRestaurant] = useState<Awaited<ReturnType<typeof getRestaurantById>>>();
 
-    const [ratings, setRatings] = useState([
-        ...restaurant.ratings.map((rating) => ({
-            stars: rating.stars,
-            description: rating.desc,
-        })),
-    ]);
+    const [ratings, setRatings] = useState<{ stars: number; description: string }[]>([]);
     const [selectedStars, setSelectedStars] = useState(5);
     const [comment, setComment] = useState("");
     const [isDialogOpen, setIsDialogOpen] = useState(false);
+    const [isSaving, setIsSaving] = useState(false);
+    const [error, setError] = useState<string>();
+
+    useEffect(() => {
+        async function loadRestaurant() {
+            try {
+                const loadedRestaurant =
+                    (await getRestaurantById(restaurantId)) ??
+                    (await getRestaurantById(1));
+                setRestaurant(loadedRestaurant);
+            } catch (loadError) {
+                setError(loadError instanceof Error
+                    ? loadError.message
+                    : "Não foi possível carregar o restaurante.");
+            }
+        }
+
+        void loadRestaurant();
+    }, [restaurantId]);
 
     const restaurantRating = getAverageRating(
         ratings.map((rating) => ({
@@ -38,46 +46,56 @@ export default function RestaurantRatePage() {
     );
 
     useEffect(() => {
-        const storedRatings = getStoredRatings(restaurantId);
-        if (!storedRatings) {
-            return;
-        }
-
-        const timeoutId = window.setTimeout(() => {
-            setRatings(
-                storedRatings.map((rating) => ({
+        async function loadRatings() {
+            try {
+                const storedRatings = await getStoredRatings(restaurantId);
+                setRatings(storedRatings.map((rating) => ({
                     stars: rating.stars,
                     description: rating.desc,
-                })),
-            );
-        });
+                })));
+            } catch (loadError) {
+                setError(loadError instanceof Error
+                    ? loadError.message
+                    : "Não foi possível carregar as avaliações.");
+            }
+        }
 
-        return () => window.clearTimeout(timeoutId);
+        void loadRatings();
     }, [restaurantId]);
 
-    function submitRating(event: FormEvent<HTMLFormElement>) {
+    if (!restaurant) {
+        return <p className="p-8" role="status">Carregando restaurante...</p>;
+    }
+
+    async function submitRating(event: FormEvent<HTMLFormElement>) {
         event.preventDefault();
 
         const trimmedComment = comment.trim();
-        if (!trimmedComment) {
+        if (!trimmedComment || isSaving) {
             return;
         }
 
-        const updatedRatings = [
-            { stars: selectedStars, description: trimmedComment },
-            ...ratings,
-        ];
-        setRatings(updatedRatings);
-        saveRatings(
-            restaurantId,
-            updatedRatings.map((rating) => ({
+        setIsSaving(true);
+        setError(undefined);
+        try {
+            const updatedRatings = await saveRating(restaurantId, {
+                stars: selectedStars,
+                desc: trimmedComment,
+            });
+            setRatings(updatedRatings.map((rating) => ({
                 stars: rating.stars,
-                desc: rating.description,
-            })),
-        );
-        setComment("");
-        setSelectedStars(5);
-        setIsDialogOpen(false);
+                description: rating.desc,
+            })));
+            setComment("");
+            setSelectedStars(5);
+            setIsDialogOpen(false);
+        } catch (saveError) {
+            setError(saveError instanceof Error
+                ? saveError.message
+                : "Não foi possível salvar a avaliação.");
+        } finally {
+            setIsSaving(false);
+        }
     }
 
     return (
@@ -124,6 +142,11 @@ export default function RestaurantRatePage() {
                             {restaurantRating.toFixed(1).replace(".", ",")}/5
                         </span>
                     </div>
+                    {error && (
+                        <p role="alert" className="ml-12 text-red-700">
+                            {error}
+                        </p>
+                    )}
 
                     <button
                         type="button"
@@ -262,9 +285,10 @@ export default function RestaurantRatePage() {
                         />
                         <button
                             type="submit"
-                            className="rounded-lg bg-brand-button px-16 py-2 text-base text-white"
+                            disabled={isSaving}
+                            className="rounded-lg bg-brand-button px-16 py-2 text-base text-white disabled:opacity-50"
                         >
-                            Avaliar
+                            {isSaving ? "Salvando..." : "Avaliar"}
                         </button>
                     </form>
                 </div>
