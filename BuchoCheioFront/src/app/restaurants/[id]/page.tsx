@@ -3,13 +3,7 @@ import Link from "next/link";
 import { RestaurantRating } from "../components/RestaurantRating";
 import { getRestaurantById } from "../services/restaurantService";
 
-function DishCard({
-    title,
-    description,
-    price,
-    image,
-    highlight = false,
-}: {
+function DishCard({ title, description, price, image, highlight = false,}: {
     title: string;
     description: string;
     price: string;

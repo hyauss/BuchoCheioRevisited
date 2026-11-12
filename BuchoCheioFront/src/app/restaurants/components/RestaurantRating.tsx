@@ -1,6 +1,6 @@
 "use client";
 
-import { useSyncExternalStore } from "react";
+import { useEffect, useState } from "react";
 import {
     getAverageRating,
     getStoredRatings,
@@ -16,33 +16,21 @@ export function RestaurantRating({
     restaurantId,
     initialRating,
 }: RestaurantRatingProps) {
-    const subscribe = (onStoreChange: () => void) => {
-        const updateRating = () => onStoreChange();
+    const [rating, setRating] = useState(initialRating);
 
+    useEffect(() => {
+        const updateRating = async () => {
+            const ratings = await getStoredRatings(restaurantId);
+            setRating(ratings.length ? getAverageRating(ratings) : 0);
+        };
+
+        void updateRating();
         window.addEventListener(RATING_UPDATED_EVENT, updateRating);
-        window.addEventListener("storage", updateRating);
-        window.addEventListener("pageshow", updateRating);
-        window.addEventListener("focus", updateRating);
 
         return () => {
             window.removeEventListener(RATING_UPDATED_EVENT, updateRating);
-            window.removeEventListener("storage", updateRating);
-            window.removeEventListener("pageshow", updateRating);
-            window.removeEventListener("focus", updateRating);
         };
-    };
-
-    const getSnapshot = () => {
-        const storedRatings = getStoredRatings(restaurantId);
-        return storedRatings?.length
-            ? getAverageRating(storedRatings).toFixed(4)
-            : initialRating.toFixed(4);
-    };
-    const rating = Number(
-        useSyncExternalStore(subscribe, getSnapshot, () =>
-            initialRating.toFixed(4),
-        ),
-    );
+    }, [restaurantId]);
 
     return (
         <div
