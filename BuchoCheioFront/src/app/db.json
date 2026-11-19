@@ -107,6 +107,36 @@
       "stars": 5,
       "desc": "AQUIII",
       "id": 18
+    },
+    {
+      "restaurantId": 1,
+      "stars": 5,
+      "desc": "AUIIIISS",
+      "id": 19
+    },
+    {
+      "restaurantId": 1,
+      "stars": 1,
+      "desc": "FOI?",
+      "id": 20
+    },
+    {
+      "restaurantId": 4,
+      "stars": 5,
+      "desc": "Pedro",
+      "id": 21
+    },
+    {
+      "restaurantId": 1,
+      "stars": 1,
+      "desc": "sadmoajok",
+      "id": 22
+    },
+    {
+      "restaurantId": 2,
+      "stars": 5,
+      "desc": "skdopak",
+      "id": 23
     }
   ],
   "restaurants": [
@@ -131,6 +161,30 @@
             "/designSystem/assets/exampleLogo.png"
           ],
           "price": 30
+        },
+        {
+          "title": "Torta de limao",
+          "desc": "Torta cremosa de limao com cobertura suave",
+          "media": [
+            "/designSystem/assets/exampleLogo.png"
+          ],
+          "price": 24
+        },
+        {
+          "title": "Brownie com sorvete",
+          "desc": "Brownie quente acompanhado de sorvete de baunilha",
+          "media": [
+            "/designSystem/assets/exampleLogo.png"
+          ],
+          "price": 28
+        },
+        {
+          "title": "Brigadeiro gourmet",
+          "desc": "Brigadeiros artesanais com chocolate especial",
+          "media": [
+            "/designSystem/assets/exampleLogo.png"
+          ],
+          "price": 18
         }
       ],
       "ratings": [
@@ -142,7 +196,7 @@
     },
     {
       "id": 2,
-      "name": "Doceria da Gigica",
+      "name": "Confeitaria Doce Encanto",
       "address": "Avenida 25, 399, Apto 74",
       "CNPJ": "19.344.912/0001-09",
       "medias": [
@@ -161,6 +215,30 @@
             "/designSystem/assets/exampleLogo.png"
           ],
           "price": 30
+        },
+        {
+          "title": "Cheesecake de frutas vermelhas",
+          "desc": "Cheesecake cremoso com cobertura de frutas vermelhas",
+          "media": [
+            "/designSystem/assets/exampleLogo.png"
+          ],
+          "price": 32
+        },
+        {
+          "title": "Pudim de leite",
+          "desc": "Pudim tradicional com calda de caramelo",
+          "media": [
+            "/designSystem/assets/exampleLogo.png"
+          ],
+          "price": 20
+        },
+        {
+          "title": "Mousse de chocolate",
+          "desc": "Mousse aerada de chocolate meio amargo",
+          "media": [
+            "/designSystem/assets/exampleLogo.png"
+          ],
+          "price": 22
         }
       ],
       "ratings": [
@@ -184,7 +262,7 @@
     },
     {
       "id": 3,
-      "name": "Doceria da Gigica",
+      "name": "Cacau & Companhia",
       "address": "Avenida 25, 399, Apto 74",
       "CNPJ": "19.344.912/0001-09",
       "medias": [
@@ -203,6 +281,30 @@
             "/designSystem/assets/exampleLogo.png"
           ],
           "price": 30
+        },
+        {
+          "title": "Copo de chocolate belga",
+          "desc": "Chocolate cremoso com biscoito crocante",
+          "media": [
+            "/designSystem/assets/exampleLogo.png"
+          ],
+          "price": 29
+        },
+        {
+          "title": "Tiramisu",
+          "desc": "Sobremesa italiana com cafe e creme mascarpone",
+          "media": [
+            "/designSystem/assets/exampleLogo.png"
+          ],
+          "price": 34
+        },
+        {
+          "title": "Bolo de cenoura",
+          "desc": "Bolo fofinho de cenoura com cobertura de chocolate",
+          "media": [
+            "/designSystem/assets/exampleLogo.png"
+          ],
+          "price": 19
         }
       ],
       "ratings": [
@@ -222,7 +324,7 @@
     },
     {
       "id": 4,
-      "name": "Doceria da Gigica",
+      "name": "Sabores da Vovo",
       "address": "Avenida 25, 399, Apto 74",
       "CNPJ": "19.344.912/0001-09",
       "medias": [
@@ -241,6 +343,30 @@
             "/designSystem/assets/exampleLogo.png"
           ],
           "price": 30
+        },
+        {
+          "title": "Petit gateau",
+          "desc": "Bolinho quente de chocolate com centro cremoso",
+          "media": [
+            "/designSystem/assets/exampleLogo.png"
+          ],
+          "price": 36
+        },
+        {
+          "title": "Creme brulee",
+          "desc": "Creme delicado com final crocante de acucar",
+          "media": [
+            "/designSystem/assets/exampleLogo.png"
+          ],
+          "price": 33
+        },
+        {
+          "title": "Milk-shake de oreo",
+          "desc": "Milk-shake gelado com biscoitos Oreo",
+          "media": [
+            "/designSystem/assets/exampleLogo.png"
+          ],
+          "price": 27
         }
       ],
       "ratings": [
@@ -256,7 +382,7 @@
     },
     {
       "id": 5,
-      "name": "Doceria da Gigica",
+      "name": "Casa da Sobremesa",
       "address": "Avenida 25, 399, Apto 74",
       "CNPJ": "19.344.912/0001-09",
       "medias": [
@@ -307,6 +433,30 @@
             "/designSystem/assets/exampleLogo.png"
           ],
           "price": 30
+        },
+        {
+          "title": "Torta de chocolate",
+          "desc": "Torta intensa de chocolate com ganache",
+          "media": [
+            "/designSystem/assets/exampleLogo.png"
+          ],
+          "price": 31
+        },
+        {
+          "title": "Copo de doce de leite",
+          "desc": "Copo cremoso de doce de leite com biscoito",
+          "media": [
+            "/designSystem/assets/exampleLogo.png"
+          ],
+          "price": 26
+        },
+        {
+          "title": "Brownie de nozes",
+          "desc": "Brownie macio com pedacos crocantes de nozes",
+          "media": [
+            "/designSystem/assets/exampleLogo.png"
+          ],
+          "price": 29
         }
       ],
       "ratings": [
